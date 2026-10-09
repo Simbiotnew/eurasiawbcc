@@ -28,6 +28,7 @@
         <a href="#judges" data-i18n="nav.judges"></a>
         <a href="#participation" data-i18n="nav.participation"></a>
         <a href="#pricing" data-i18n="nav.pricing"></a>
+        <a href="#rules" data-i18n="nav.rules"></a>
         <!-- Эта ссылка видна только в мобильном меню (на узких экранах кнопка в шапке скрыта) -->
         <a class="nav__register" href="#register" data-i18n="nav.register"></a>
       </nav>
@@ -94,7 +95,7 @@
         </div>
         <ul class="notes list-reset">
           <li data-i18n="events.deadline"></li>
-          <li data-i18n="events.submit"></li>
+          <li data-i18n="events.results"></li>
           <li data-i18n="events.ship"></li>
         </ul>
       </div>
@@ -168,8 +169,72 @@
       </div>
     </section>
 
+    <!-- Regulations: официальные регламенты номинаций (PDF в папке docs) -->
+    <section class="section" id="rules">
+      <div class="container">
+        <h2 class="section__title" data-i18n="rules.title"></h2>
+        <p class="rules__lead" data-i18n="rules.lead"></p>
+        <div class="grid rules__grid">
+          <article class="card rules__card">
+            <svg class="rules__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 3v5h5M10 13h6M10 16.5h6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            <h3 data-i18n="nom.lash"></h3>
+            <p class="rules__desc" data-i18n="rules.card"></p>
+            <div class="rules__links">
+              <!-- Главная кнопка: script.js подставляет PDF на языке сайта (без JS открывается английский) -->
+              <a class="btn btn--small rules__main" href="docs/regulations-lash-en.pdf" target="_blank" rel="noopener"><span data-i18n="rules.open"></span> · PDF</a>
+              <p class="rules__other"><span data-i18n="rules.otherlangs"></span>
+                <a href="docs/regulations-lash-en.pdf" target="_blank" rel="noopener" hreflang="en">EN</a>
+                <a href="docs/regulations-lash-ru.pdf" target="_blank" rel="noopener" hreflang="ru">RU</a>
+                <a href="docs/regulations-lash-de.pdf" target="_blank" rel="noopener" hreflang="de">DE</a>
+                <a href="docs/regulations-lash-pl.pdf" target="_blank" rel="noopener" hreflang="pl">PL</a>
+                <a href="docs/regulations-lash-it.pdf" target="_blank" rel="noopener" hreflang="it">IT</a>
+                <a href="docs/regulations-lash-fr.pdf" target="_blank" rel="noopener" hreflang="fr">FR</a>
+              </p>
+            </div>
+          </article>
+          <article class="card rules__card">
+            <svg class="rules__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 3v5h5M10 13h6M10 16.5h6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            <h3 data-i18n="nom.nails"></h3>
+            <p class="rules__desc" data-i18n="rules.card"></p>
+            <div class="rules__links">
+              <!-- Главная кнопка: script.js подставляет PDF на языке сайта (без JS открывается английский) -->
+              <a class="btn btn--small rules__main" href="docs/regulations-nails-en.pdf" target="_blank" rel="noopener"><span data-i18n="rules.open"></span> · PDF</a>
+              <p class="rules__other"><span data-i18n="rules.otherlangs"></span>
+                <a href="docs/regulations-nails-en.pdf" target="_blank" rel="noopener" hreflang="en">EN</a>
+                <a href="docs/regulations-nails-ru.pdf" target="_blank" rel="noopener" hreflang="ru">RU</a>
+                <a href="docs/regulations-nails-de.pdf" target="_blank" rel="noopener" hreflang="de">DE</a>
+                <a href="docs/regulations-nails-pl.pdf" target="_blank" rel="noopener" hreflang="pl">PL</a>
+                <a href="docs/regulations-nails-it.pdf" target="_blank" rel="noopener" hreflang="it">IT</a>
+                <a href="docs/regulations-nails-fr.pdf" target="_blank" rel="noopener" hreflang="fr">FR</a>
+              </p>
+            </div>
+          </article>
+          <article class="card rules__card">
+            <svg class="rules__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 3v5h5M10 13h6M10 16.5h6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            <h3 data-i18n="nom.pmu"></h3>
+            <p class="rules__desc" data-i18n="rules.card"></p>
+            <div class="rules__links">
+              <!-- Главная кнопка: script.js подставляет PDF на языке сайта (без JS открывается английский) -->
+              <a class="btn btn--small rules__main" href="docs/regulations-pmu-en.pdf" target="_blank" rel="noopener"><span data-i18n="rules.open"></span> · PDF</a>
+              <p class="rules__other"><span data-i18n="rules.otherlangs"></span>
+                <a href="docs/regulations-pmu-en.pdf" target="_blank" rel="noopener" hreflang="en">EN</a>
+                <a href="docs/regulations-pmu-ru.pdf" target="_blank" rel="noopener" hreflang="ru">RU</a>
+                <a href="docs/regulations-pmu-de.pdf" target="_blank" rel="noopener" hreflang="de">DE</a>
+                <a href="docs/regulations-pmu-pl.pdf" target="_blank" rel="noopener" hreflang="pl">PL</a>
+                <a href="docs/regulations-pmu-it.pdf" target="_blank" rel="noopener" hreflang="it">IT</a>
+                <a href="docs/regulations-pmu-fr.pdf" target="_blank" rel="noopener" hreflang="fr">FR</a>
+              </p>
+            </div>
+          </article>
+        </div>
+        <ul class="notes list-reset">
+          <li data-i18n="rules.other"></li>
+        </ul>
+      </div>
+    </section>
+
     <!-- Registration steps -->
-    <section class="section">
+    <section class="section section--dark">
       <div class="container">
         <h2 class="section__title" data-i18n="steps.title"></h2>
         <ol class="grid grid--3 list-reset steps">
@@ -193,7 +258,7 @@
     </section>
 
     <!-- Why participate -->
-    <section class="section section--dark">
+    <section class="section">
       <div class="container">
         <h2 class="section__title" data-i18n="why.title"></h2>
         <div class="grid grid--4">
@@ -206,7 +271,7 @@
     </section>
 
     <!-- Judges -->
-    <section class="section" id="judges">
+    <section class="section section--dark" id="judges">
       <div class="container">
         <h2 class="section__title" data-i18n="judges.title"></h2>
         <!-- Карточка судьи: кнопка открывает окно (dialog внизу страницы). Регалии лежат в скрытых .judge__bio, по блоку на каждый язык (атрибут lang) -->
@@ -1218,7 +1283,7 @@
     </section>
 
     <!-- FAQ: <details> работает без JavaScript -->
-    <section class="section section--dark">
+    <section class="section">
       <div class="container faq">
         <h2 class="section__title" data-i18n="faq.title"></h2>
         <details><summary data-i18n="faq.1.q"></summary><p data-i18n="faq.1.a"></p></details>

@@ -31,6 +31,13 @@ function applyLang(lang) {
     el.setAttribute("aria-label", dict[key] ?? fallback[key] ?? key);
   });
 
+  // Регламенты: главная кнопка открывает PDF на языке сайта, выбранный язык подсвечен
+  document.querySelectorAll(".rules__links").forEach((box) => {
+    const chip = box.querySelector(`.rules__other a[hreflang="${lang}"]`);
+    box.querySelectorAll(".rules__other a").forEach((a) => a.classList.toggle("is-current", a === chip));
+    if (chip) box.querySelector(".rules__main").href = chip.href;
+  });
+
   document.title = dict["meta.title"] ?? fallback["meta.title"];
   document
     .querySelector('meta[name="description"]')
@@ -40,8 +47,8 @@ function applyLang(lang) {
   try { localStorage.setItem("lang", lang); } catch (e) { /* ничего */ }
 }
 
-// 3. Обратный отсчёт до конца регистрации (20 января 2027)
-const DEADLINE = new Date("2027-01-20T23:59:59");
+// 3. Обратный отсчёт до конца регистрации и приёма работ (20 февраля 2027 включительно)
+const DEADLINE = new Date("2027-02-20T23:59:59");
 const timerBox = document.getElementById("countdown-timer");
 const closedMsg = document.getElementById("countdown-closed");
 
@@ -90,7 +97,7 @@ document.addEventListener("click", (e) => {
 });
 
 // Если экран растянули до десктопа, сбрасываем состояние меню
-window.matchMedia("(min-width: 900px)").addEventListener("change", () => setMenu(false));
+window.matchMedia("(min-width: 1100px)").addEventListener("change", () => setMenu(false));
 
 // 5. Окно с регалиями судьи
 const judgeDialog = document.getElementById("judge-dialog");
@@ -127,6 +134,14 @@ judgeDialog.querySelector(".judge-dialog__close").addEventListener("click", () =
 // Клик по затемнённому фону (мимо содержимого окна) тоже закрывает
 judgeDialog.addEventListener("click", (e) => {
   if (e.target === judgeDialog) judgeDialog.close();
+});
+
+// Перед переходом ещё раз берём ссылку из кнопки языка (в едином файле ссылки на PDF меняются после загрузки)
+document.querySelectorAll(".rules__main").forEach((main) => {
+  main.addEventListener("click", () => {
+    const chip = main.closest(".rules__links").querySelector(".rules__other a.is-current");
+    if (chip) main.href = chip.href;
+  });
 });
 
 // 6. Запуск и реакция на переключатель
