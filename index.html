@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>World Beauty Eurasia — International Online Beauty Championship</title>
+  <meta name="description" content="World Beauty Eurasia: international conference and online beauty championship 2027. Lash, Brows, PMU, Nails, Hair and more. Dates, judges, participation.">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="translations.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="World Beauty Eurasia">
+        <img class="logo__img" src="img/logo.jpg" alt="" width="256" height="256">
+        <span class="logo__text">WBE <span class="logo__accent">Eurasia</span></span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Main navigation">
+        <a href="#events" data-i18n="nav.events"></a>
+        <a href="#nominations" data-i18n="nav.nominations"></a>
+        <a href="#judges" data-i18n="nav.judges"></a>
+        <a href="#participation" data-i18n="nav.participation"></a>
+        <a href="#pricing" data-i18n="nav.pricing"></a>
+        <!-- Эта ссылка видна только в мобильном меню (на узких экранах кнопка в шапке скрыта) -->
+        <a class="nav__register" href="#register" data-i18n="nav.register"></a>
+      </nav>
+      <div class="header__right">
+        <select id="lang" class="lang" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="ru">RU</option>
+          <option value="de">DE</option>
+          <option value="pl">PL</option>
+          <option value="it">IT</option>
+          <option value="fr">FR</option>
+        </select>
+        <a class="btn btn--small header__btn" href="#register" data-i18n="nav.register"></a>
+        <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" data-i18n-aria="nav.menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+        <h1>World Beauty <span class="gold">Eurasia</span></h1>
+        <p class="hero__text" data-i18n="hero.text"></p>
+        <div class="hero__actions">
+          <a class="btn" href="#register" data-i18n="hero.cta1"></a>
+          <a class="btn btn--outline" href="#events" data-i18n="hero.cta2"></a>
+        </div>
+
+        <!-- Обратный отсчёт до конца регистрации (логика в script.js) -->
+        <div class="countdown" id="countdown" hidden>
+          <p class="countdown__title" data-i18n="count.title"></p>
+          <div class="countdown__timer" id="countdown-timer">
+            <div><span id="cd-d">0</span><small data-i18n="count.d"></small></div>
+            <div><span id="cd-h">0</span><small data-i18n="count.h"></small></div>
+            <div><span id="cd-m">0</span><small data-i18n="count.m"></small></div>
+          </div>
+          <p class="countdown__closed" id="countdown-closed" data-i18n="count.closed" hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section class="section" id="events">
+      <div class="container">
+        <h2 class="section__title" data-i18n="events.title"></h2>
+        <div class="grid grid--2">
+          <article class="card card--event">
+            <p class="card__tag" data-i18n="events.conf.tag"></p>
+            <h3 data-i18n="events.conf.name"></h3>
+            <p class="card__date" data-i18n="events.conf.date"></p>
+            <p data-i18n="events.conf.text"></p>
+          </article>
+          <article class="card card--event">
+            <p class="card__tag" data-i18n="events.champ.tag"></p>
+            <h3 data-i18n="events.champ.name"></h3>
+            <p class="card__date" data-i18n="events.champ.date"></p>
+            <p data-i18n="events.champ.text"></p>
+          </article>
+        </div>
+        <ul class="notes list-reset">
+          <li data-i18n="events.deadline"></li>
+          <li data-i18n="events.submit"></li>
+          <li data-i18n="events.ship"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Nominations -->
+    <section class="section section--dark" id="nominations">
+      <div class="container">
+        <h2 class="section__title" data-i18n="nom.title"></h2>
+        <ul class="grid grid--4 list-reset">
+          <li class="card card--nom" data-i18n="nom.lash"></li>
+          <li class="card card--nom" data-i18n="nom.lami"></li>
+          <li class="card card--nom" data-i18n="nom.brows"></li>
+          <li class="card card--nom" data-i18n="nom.pmu"></li>
+          <li class="card card--nom" data-i18n="nom.smp"></li>
+          <li class="card card--nom" data-i18n="nom.cosm"></li>
+          <li class="card card--nom" data-i18n="nom.nails"></li>
+          <li class="card card--nom" data-i18n="nom.hair"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Participation -->
+    <section class="section" id="participation">
+      <div class="container">
+        <h2 class="section__title" data-i18n="part.title"></h2>
+        <div class="grid grid--2">
+          <div>
+            <h3 data-i18n="part.benefits"></h3>
+            <ul class="check-list">
+              <li data-i18n="part.b1"></li>
+              <li data-i18n="part.b2"></li>
+              <li data-i18n="part.b3"></li>
+              <li data-i18n="part.b4"></li>
+              <li data-i18n="part.b5"></li>
+              <li data-i18n="part.b6"></li>
+              <li data-i18n="part.b7"></li>
+            </ul>
+          </div>
+          <div>
+            <h3 data-i18n="part.eval.title"></h3>
+            <p data-i18n="part.eval.text"></p>
+            <p data-i18n="part.after"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section section--dark" id="pricing">
+      <div class="container">
+        <h2 class="section__title" data-i18n="pricing.title"></h2>
+        <div class="grid grid--3">
+          <article class="card price-card">
+            <h3 data-i18n="pricing.participant"></h3>
+            <p class="price-card__amount">$55</p>
+            <p class="price-card__note" data-i18n="pricing.perzone"></p>
+          </article>
+          <article class="card price-card">
+            <h3 data-i18n="pricing.judge"></h3>
+            <ul class="price-card__rows list-reset">
+              <li><span class="price-card__amount">$99</span><small data-i18n="pricing.notrophy"></small></li>
+              <li><span class="price-card__amount">$150</span><small data-i18n="pricing.trophy"></small></li>
+            </ul>
+          </article>
+          <article class="card price-card">
+            <h3 data-i18n="pricing.speaker"></h3>
+            <p class="price-card__amount">$125</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registration steps -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title" data-i18n="steps.title"></h2>
+        <ol class="grid grid--3 list-reset steps">
+          <li class="card step">
+            <span class="step__num" aria-hidden="true">1</span>
+            <h3 data-i18n="steps.1.t"></h3>
+            <p data-i18n="steps.1.p"></p>
+          </li>
+          <li class="card step">
+            <span class="step__num" aria-hidden="true">2</span>
+            <h3 data-i18n="steps.2.t"></h3>
+            <p data-i18n="steps.2.p"></p>
+          </li>
+          <li class="card step">
+            <span class="step__num" aria-hidden="true">3</span>
+            <h3 data-i18n="steps.3.t"></h3>
+            <p data-i18n="steps.3.p"></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Why participate -->
+    <section class="section section--dark">
+      <div class="container">
+        <h2 class="section__title" data-i18n="why.title"></h2>
+        <div class="grid grid--4">
+          <article class="card"><h3 data-i18n="why.1.t"></h3><p data-i18n="why.1.p"></p></article>
+          <article class="card"><h3 data-i18n="why.2.t"></h3><p data-i18n="why.2.p"></p></article>
+          <article class="card"><h3 data-i18n="why.3.t"></h3><p data-i18n="why.3.p"></p></article>
+          <article class="card"><h3 data-i18n="why.4.t"></h3><p data-i18n="why.4.p"></p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Judges -->
+    <section class="section" id="judges">
+      <div class="container">
+        <h2 class="section__title" data-i18n="judges.title"></h2>
+        <!-- Карточка судьи: кнопка открывает окно (dialog внизу страницы). Регалии лежат в скрытых .judge__bio, по блоку на каждый язык (атрибут lang) -->
+        <ul class="grid grid--4 list-reset judges">
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/julita-stasinska.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.lash"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Julita Stasińska</span>
+                <span class="judge__meta" data-i18n="c.pl"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" lang="en" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/julitastasinska_instructor/" target="_blank" rel="noopener">@julitastasinska_instructor</a>
+              <p>Julita Stasińska is a lash stylist, an instructor in lash styling, and the founder of the Diamond Lash brand in Poland. She specializes in creating the „Perfect Line” effect, a technique upon which she has based her own proprietary training programs. Her passion lies in volume styling, creating intensely black lashes, crafting perfectly executed fans, and achieving a flawlessly even lash line.</p>
+              <p>In her work, she prioritizes precision, meticulous attention to detail, and the highest quality of execution. She trains lash stylists on a daily basis, helping them refine their techniques and achieve results that are both more aesthetically pleasing and longer-lasting. She is dedicated to sharing her knowledge and experience, inspiring other stylists to pursue continuous professional growth and raise standards within the beauty industry.</p>
+            </div>
+            <div class="judge__bio" lang="ru" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/julitastasinska_instructor/" target="_blank" rel="noopener">@julitastasinska_instructor</a>
+              <p>Julita Stasińska — лэшмейкер, инструктор по наращиванию ресниц и основательница бренда Diamond Lash в Польше. Она специализируется на эффекте «Perfect Line» — технике, на которой построены её авторские обучающие программы. Её страсть — объёмное наращивание: насыщенно-чёрные ресницы, идеально выполненные пучки и безупречно ровная линия ресниц.</p>
+              <p>В работе она ставит на первое место точность, тщательное внимание к деталям и высочайшее качество исполнения. Каждый день она обучает лэшмейкеров, помогая им совершенствовать технику и добиваться результата, который выглядит эстетичнее и держится дольше. Она с радостью делится знаниями и опытом, вдохновляя других мастеров на постоянный профессиональный рост и повышение стандартов в индустрии красоты.</p>
+            </div>
+            <div class="judge__bio" lang="de" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/julitastasinska_instructor/" target="_blank" rel="noopener">@julitastasinska_instructor</a>
+              <p>Julita Stasińska ist Lash-Stylistin, Trainerin für Wimpernverlängerung und Gründerin der Marke Diamond Lash in Polen. Sie ist auf den „Perfect Line“-Effekt spezialisiert – eine Technik, auf der ihre eigenen Schulungsprogramme basieren. Ihre Leidenschaft gilt dem Volumen-Styling: intensiv schwarze Wimpern, perfekt gearbeitete Fächer und eine makellos gleichmäßige Wimpernlinie.</p>
+              <p>Bei ihrer Arbeit stehen Präzision, akribische Liebe zum Detail und höchste Ausführungsqualität an erster Stelle. Sie schult täglich Lash-Stylistinnen und hilft ihnen, ihre Technik zu verfeinern und Ergebnisse zu erzielen, die ästhetischer und langlebiger sind. Mit Hingabe gibt sie ihr Wissen und ihre Erfahrung weiter und inspiriert andere Stylistinnen zu stetiger beruflicher Weiterentwicklung und höheren Standards in der Beauty-Branche.</p>
+            </div>
+            <div class="judge__bio" lang="pl" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/julitastasinska_instructor/" target="_blank" rel="noopener">@julitastasinska_instructor</a>
+              <p>Julita Stasińska jest stylistką rzęs, instruktorką stylizacji rzęs i założycielką marki Diamond Lash w Polsce. Specjalizuje się w efekcie „Perfect Line” – technice, na której oparła własne autorskie programy szkoleniowe. Jej pasją jest stylizacja objętościowa: intensywnie czarne rzęsy, perfekcyjnie wykonane kępki i idealnie równa linia rzęs.</p>
+              <p>W pracy stawia na precyzję, dbałość o każdy szczegół i najwyższą jakość wykonania. Na co dzień szkoli stylistki rzęs, pomagając im doskonalić technikę i osiągać efekty bardziej estetyczne i trwalsze. Chętnie dzieli się wiedzą i doświadczeniem, inspirując inne stylistki do ciągłego rozwoju zawodowego i podnoszenia standardów w branży beauty.</p>
+            </div>
+            <div class="judge__bio" lang="it" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/julitastasinska_instructor/" target="_blank" rel="noopener">@julitastasinska_instructor</a>
+              <p>Julita Stasińska è lash stylist, istruttrice di extension ciglia e fondatrice del brand Diamond Lash in Polonia. È specializzata nell&#x27;effetto «Perfect Line», una tecnica su cui ha costruito i propri programmi formativi. La sua passione è il volume: ciglia di un nero intenso, ventagli eseguiti alla perfezione e una linea ciglia impeccabilmente uniforme.</p>
+              <p>Nel suo lavoro mette al primo posto la precisione, la cura meticolosa dei dettagli e la massima qualità di esecuzione. Forma ogni giorno lash stylist, aiutandole a perfezionare la tecnica e a ottenere risultati più estetici e duraturi. Condivide con passione le sue conoscenze e la sua esperienza, ispirando altre professioniste a crescere costantemente e ad alzare gli standard del settore beauty.</p>
+            </div>
+            <div class="judge__bio" lang="fr" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/julitastasinska_instructor/" target="_blank" rel="noopener">@julitastasinska_instructor</a>
+              <p>Julita Stasińska est styliste de cils, formatrice en extension de cils et fondatrice de la marque Diamond Lash en Pologne. Elle est spécialisée dans l&#x27;effet « Perfect Line », une technique sur laquelle reposent ses propres programmes de formation. Sa passion : le volume, avec des cils d&#x27;un noir intense, des bouquets parfaitement réalisés et une ligne de cils d&#x27;une régularité irréprochable.</p>
+              <p>Dans son travail, elle privilégie la précision, une attention minutieuse aux détails et une exécution de la plus haute qualité. Elle forme chaque jour des stylistes de cils et les aide à perfectionner leur technique pour obtenir des résultats plus esthétiques et plus durables. Elle partage volontiers son savoir et son expérience, incitant les autres stylistes à progresser sans cesse et à élever les standards du secteur de la beauté.</p>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/karolina-suder.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.lash"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Karolina Suder</span>
+                <span class="judge__meta" data-i18n="c.pl"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" lang="en" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/lash_mi_kaja/" target="_blank" rel="noopener">@lash_mi_kaja</a>
+              <p class="judge__tagline">Lash Mi Kaja</p>
+              <ul>
+                <li>Independent Instructor</li>
+                <li>Owner of the Lash Mi Kaja salon in Myślenice</li>
+                <li>Brand Ambassador Rzesownia_sklep</li>
+                <li>Ambassador sabrija_store</li>
+                <li>In the beauty industry for 10 years</li>
+                <li>Trained as a makeup artist and educator</li>
+                <li>Completed studies at the Faculty of Medicine: Trainer Linergist and Cosmetologist</li>
+                <li>10-time winner of the Eyelash and Brow Styling Championships Online and In-Person</li>
+                <li>1st&nbsp;Place in the Beauty Champions Poll - Eyelash Stylist of the Year in the Małopolska Voivodeship 2020</li>
+                <li>In addition to eyelashes and eyebrows, she also specializes in Permanent Makeup.</li>
+                <li>She constantly improves her qualifications by participating in conferences and training.</li>
+                <li>Junior Judge International Eyelash and Brow Styling Championships Global Lash Brow Action</li>
+                <li>Judge Lashes New York online</li>
+                <li>Judge Lashes Global Spanish Beauty Cap</li>
+                <li>Judge wbc_beauty_champ</li>
+                <li>Judge Lash and Brow Talent</li>
+                <li>Judge your_awards</li>
+                <li>Judge Global Lash Brown Action PLATO</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="ru" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/lash_mi_kaja/" target="_blank" rel="noopener">@lash_mi_kaja</a>
+              <p class="judge__tagline">Lash Mi Kaja</p>
+              <ul>
+                <li>Независимый инструктор</li>
+                <li>Владелица салона Lash Mi Kaja в Мысленице</li>
+                <li>Амбассадор бренда Rzesownia_sklep</li>
+                <li>Амбассадор sabrija_store</li>
+                <li>10 лет в индустрии красоты</li>
+                <li>Обучалась как визажист и преподаватель</li>
+                <li>Окончила медицинский факультет: тренер-линергист и косметолог</li>
+                <li>10-кратная победительница чемпионатов по наращиванию ресниц и оформлению бровей (онлайн и офлайн)</li>
+                <li>1-е&nbsp;место в опросе Beauty Champions — «Лэшмейкер года» в Малопольском воеводстве 2020</li>
+                <li>Помимо ресниц и бровей, специализируется на перманентном макияже</li>
+                <li>Постоянно повышает квалификацию на конференциях и обучениях</li>
+                <li>Младший судья международных чемпионатов по наращиванию ресниц и оформлению бровей Global Lash Brow Action</li>
+                <li>Судья Lashes New York online</li>
+                <li>Судья Lashes Global Spanish Beauty Cap</li>
+                <li>Судья wbc_beauty_champ</li>
+                <li>Судья Lash and Brow Talent</li>
+                <li>Судья your_awards</li>
+                <li>Судья Global Lash Brown Action PLATO</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="de" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/lash_mi_kaja/" target="_blank" rel="noopener">@lash_mi_kaja</a>
+              <p class="judge__tagline">Lash Mi Kaja</p>
+              <ul>
+                <li>Unabhängige Trainerin</li>
+                <li>Inhaberin des Salons Lash Mi Kaja in Myślenice</li>
+                <li>Markenbotschafterin Rzesownia_sklep</li>
+                <li>Botschafterin sabrija_store</li>
+                <li>Seit 10 Jahren in der Beauty-Branche</li>
+                <li>Ausgebildet als Make-up-Artist und Trainerin</li>
+                <li>Studium an der Medizinischen Fakultät: Linergistin-Trainerin und Kosmetikerin</li>
+                <li>10-fache Siegerin bei Meisterschaften für Wimpern- und Augenbrauenstyling (online und vor Ort)</li>
+                <li>1.&nbsp;Platz bei der Umfrage Beauty Champions – Wimpernstylistin des Jahres in der Woiwodschaft Kleinpolen 2020</li>
+                <li>Neben Wimpern und Augenbrauen ist sie auch auf Permanent Make-up spezialisiert.</li>
+                <li>Sie bildet sich ständig auf Konferenzen und Schulungen weiter.</li>
+                <li>Junior-Jurorin bei den internationalen Meisterschaften für Wimpern- und Augenbrauenstyling Global Lash Brow Action</li>
+                <li>Jurorin Lashes New York online</li>
+                <li>Jurorin Lashes Global Spanish Beauty Cap</li>
+                <li>Jurorin wbc_beauty_champ</li>
+                <li>Jurorin Lash and Brow Talent</li>
+                <li>Jurorin your_awards</li>
+                <li>Jurorin Global Lash Brown Action PLATO</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="pl" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/lash_mi_kaja/" target="_blank" rel="noopener">@lash_mi_kaja</a>
+              <p class="judge__tagline">Lash Mi Kaja</p>
+              <ul>
+                <li>Niezależna instruktorka</li>
+                <li>Właścicielka salonu Lash Mi Kaja w Myślenicach</li>
+                <li>Ambasadorka marki Rzesownia_sklep</li>
+                <li>Ambasadorka sabrija_store</li>
+                <li>10 lat w branży beauty</li>
+                <li>Wykształcona jako makijażystka i edukatorka</li>
+                <li>Ukończone studia na Wydziale Lekarskim: trener linergistka i kosmetolog</li>
+                <li>10-krotna zwyciężczyni Mistrzostw Stylizacji Rzęs i Brwi online i stacjonarnie</li>
+                <li>1.&nbsp;miejsce w plebiscycie Beauty Champions – Stylistka Rzęs Roku w województwie małopolskim 2020</li>
+                <li>Oprócz rzęs i brwi specjalizuje się także w makijażu permanentnym.</li>
+                <li>Stale podnosi kwalifikacje, uczestnicząc w konferencjach i szkoleniach.</li>
+                <li>Junior Judge Międzynarodowych Mistrzostw Stylizacji Rzęs i Brwi Global Lash Brow Action</li>
+                <li>Sędzia Lashes New York online</li>
+                <li>Sędzia Lashes Global Spanish Beauty Cap</li>
+                <li>Sędzia wbc_beauty_champ</li>
+                <li>Sędzia Lash and Brow Talent</li>
+                <li>Sędzia your_awards</li>
+                <li>Sędzia Global Lash Brown Action PLATO</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="it" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/lash_mi_kaja/" target="_blank" rel="noopener">@lash_mi_kaja</a>
+              <p class="judge__tagline">Lash Mi Kaja</p>
+              <ul>
+                <li>Istruttrice indipendente</li>
+                <li>Titolare del salone Lash Mi Kaja a Myślenice</li>
+                <li>Brand ambassador Rzesownia_sklep</li>
+                <li>Ambassador sabrija_store</li>
+                <li>Da 10 anni nel settore beauty</li>
+                <li>Formata come make-up artist ed educatrice</li>
+                <li>Studi presso la Facoltà di Medicina: trainer linergista e cosmetologa</li>
+                <li>10 volte vincitrice dei campionati di extension ciglia e styling sopracciglia, online e dal vivo</li>
+                <li>1°&nbsp;posto nel sondaggio Beauty Champions – Lash Stylist dell&#x27;anno nel Voivodato della Piccola Polonia 2020</li>
+                <li>Oltre a ciglia e sopracciglia, è specializzata anche nel trucco permanente.</li>
+                <li>Aggiorna costantemente le sue competenze partecipando a conferenze e corsi.</li>
+                <li>Junior judge dei campionati internazionali di extension ciglia e styling sopracciglia Global Lash Brow Action</li>
+                <li>Giudice Lashes New York online</li>
+                <li>Giudice Lashes Global Spanish Beauty Cap</li>
+                <li>Giudice wbc_beauty_champ</li>
+                <li>Giudice Lash and Brow Talent</li>
+                <li>Giudice your_awards</li>
+                <li>Giudice Global Lash Brown Action PLATO</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="fr" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/lash_mi_kaja/" target="_blank" rel="noopener">@lash_mi_kaja</a>
+              <p class="judge__tagline">Lash Mi Kaja</p>
+              <ul>
+                <li>Formatrice indépendante</li>
+                <li>Propriétaire du salon Lash Mi Kaja à Myślenice</li>
+                <li>Ambassadrice de la marque Rzesownia_sklep</li>
+                <li>Ambassadrice sabrija_store</li>
+                <li>10 ans dans le secteur de la beauté</li>
+                <li>Formée comme maquilleuse et formatrice</li>
+                <li>Études à la Faculté de médecine : formatrice linergiste et cosmétologue</li>
+                <li>10 fois lauréate de championnats d&#x27;extension de cils et de restructuration des sourcils, en ligne et en présentiel</li>
+                <li>1re&nbsp;place du sondage Beauty Champions – Styliste de cils de l&#x27;année en Petite-Pologne 2020</li>
+                <li>En plus des cils et des sourcils, elle est également spécialisée en maquillage permanent.</li>
+                <li>Elle se perfectionne en permanence lors de conférences et de formations.</li>
+                <li>Juge junior des championnats internationaux de cils et sourcils Global Lash Brow Action</li>
+                <li>Juge Lashes New York online</li>
+                <li>Juge Lashes Global Spanish Beauty Cap</li>
+                <li>Juge wbc_beauty_champ</li>
+                <li>Juge Lash and Brow Talent</li>
+                <li>Juge your_awards</li>
+                <li>Juge Global Lash Brown Action PLATO</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/marzena-laskowska.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.lash"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Marzena Laskowska</span>
+                <span class="judge__meta" data-i18n="c.pl"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/lashes.by.laskowska.marzena/" target="_blank" rel="noopener">@lashes.by.laskowska.marzena</a>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/marina-kubalska.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.lash"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Marina Kubalska</span>
+                <span class="judge__meta" data-i18n="c.ua"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" lang="en" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/kubalskaya_lashmaker/" target="_blank" rel="noopener">@kubalskaya_lashmaker</a>
+              <p class="judge__tagline">International Lash Expert • Trainer • Judge • Speaker</p>
+              <ul>
+                <li>Expert in the EYELINER / “Cat-Eye” effect</li>
+                <li>Trainer in foundation courses and advanced professional programs</li>
+                <li>International Championship Winner</li>
+                <li>Judge at international beauty championships</li>
+                <li>Speaker at professional conferences and beauty events</li>
+                <li>Over 10 years of professional experience in the beauty industry</li>
+                <li>Hundreds of students worldwide, including lash artists who have built successful careers and won prizes at international championships</li>
+                <li>Brand Ambassador for Lash Zone</li>
+              </ul>
+              <p>I don’t simply teach techniques — I share real-world experience, a systematic approach, and professional mindset that help lash artists take their skills and careers to the next level.</p>
+            </div>
+            <div class="judge__bio" lang="ru" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/kubalskaya_lashmaker/" target="_blank" rel="noopener">@kubalskaya_lashmaker</a>
+              <p class="judge__tagline">Международный эксперт по ресницам • Тренер • Судья • Спикер</p>
+              <ul>
+                <li>Эксперт по эффекту EYELINER / «Cat-Eye» («кошачий глаз»)</li>
+                <li>Тренер базовых курсов и продвинутых профессиональных программ</li>
+                <li>Победительница международных чемпионатов</li>
+                <li>Судья международных чемпионатов красоты</li>
+                <li>Спикер профессиональных конференций и бьюти-мероприятий</li>
+                <li>Более 10 лет профессионального опыта в индустрии красоты</li>
+                <li>Сотни учениц по всему миру, в том числе лэшмейкеры, которые построили успешную карьеру и заняли призовые места на международных чемпионатах</li>
+                <li>Амбассадор бренда Lash Zone</li>
+              </ul>
+              <p>Я не просто учу технике — я делюсь реальным опытом, системным подходом и профессиональным мышлением, которые помогают лэшмейкерам вывести навыки и карьеру на новый уровень.</p>
+            </div>
+            <div class="judge__bio" lang="de" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/kubalskaya_lashmaker/" target="_blank" rel="noopener">@kubalskaya_lashmaker</a>
+              <p class="judge__tagline">Internationale Lash-Expertin • Trainerin • Jurorin • Speakerin</p>
+              <ul>
+                <li>Expertin für den EYELINER-/„Cat-Eye“-Effekt</li>
+                <li>Trainerin für Grundkurse und fortgeschrittene Profi-Programme</li>
+                <li>Siegerin internationaler Meisterschaften</li>
+                <li>Jurorin bei internationalen Beauty-Meisterschaften</li>
+                <li>Speakerin auf Fachkonferenzen und Beauty-Events</li>
+                <li>Über 10 Jahre Berufserfahrung in der Beauty-Branche</li>
+                <li>Hunderte Schülerinnen weltweit, darunter Lash-Artists, die erfolgreiche Karrieren aufgebaut und Preise bei internationalen Meisterschaften gewonnen haben</li>
+                <li>Markenbotschafterin für Lash Zone</li>
+              </ul>
+              <p>Ich vermittle nicht nur Techniken – ich teile echte Praxiserfahrung, einen systematischen Ansatz und eine professionelle Denkweise, die Lash-Artists helfen, ihre Fähigkeiten und ihre Karriere auf das nächste Level zu bringen.</p>
+            </div>
+            <div class="judge__bio" lang="pl" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/kubalskaya_lashmaker/" target="_blank" rel="noopener">@kubalskaya_lashmaker</a>
+              <p class="judge__tagline">Międzynarodowa ekspertka stylizacji rzęs • Trenerka • Sędzia • Prelegentka</p>
+              <ul>
+                <li>Ekspertka efektu EYELINER / „Cat-Eye” (kocie oko)</li>
+                <li>Trenerka kursów podstawowych i zaawansowanych programów zawodowych</li>
+                <li>Zwyciężczyni międzynarodowych mistrzostw</li>
+                <li>Sędzia międzynarodowych mistrzostw beauty</li>
+                <li>Prelegentka na konferencjach branżowych i wydarzeniach beauty</li>
+                <li>Ponad 10 lat doświadczenia zawodowego w branży beauty</li>
+                <li>Setki kursantek na całym świecie, w tym stylistki rzęs, które zbudowały udane kariery i zdobywały nagrody na międzynarodowych mistrzostwach</li>
+                <li>Ambasadorka marki Lash Zone</li>
+              </ul>
+              <p>Nie uczę samych technik — dzielę się prawdziwym doświadczeniem, systemowym podejściem i profesjonalnym nastawieniem, które pomagają stylistkom rzęs wynieść umiejętności i karierę na wyższy poziom.</p>
+            </div>
+            <div class="judge__bio" lang="it" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/kubalskaya_lashmaker/" target="_blank" rel="noopener">@kubalskaya_lashmaker</a>
+              <p class="judge__tagline">Lash expert internazionale • Trainer • Giudice • Speaker</p>
+              <ul>
+                <li>Esperta dell&#x27;effetto EYELINER / «Cat-Eye»</li>
+                <li>Trainer di corsi base e programmi professionali avanzati</li>
+                <li>Vincitrice di campionati internazionali</li>
+                <li>Giudice di campionati internazionali di bellezza</li>
+                <li>Speaker a conferenze professionali ed eventi beauty</li>
+                <li>Oltre 10 anni di esperienza professionale nel settore beauty</li>
+                <li>Centinaia di allieve in tutto il mondo, tra cui lash artist che hanno costruito carriere di successo e vinto premi in campionati internazionali</li>
+                <li>Brand ambassador di Lash Zone</li>
+              </ul>
+              <p>Non insegno solo tecniche: condivido esperienza reale, un approccio sistematico e una mentalità professionale che aiutano le lash artist a portare competenze e carriera al livello successivo.</p>
+            </div>
+            <div class="judge__bio" lang="fr" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/kubalskaya_lashmaker/" target="_blank" rel="noopener">@kubalskaya_lashmaker</a>
+              <p class="judge__tagline">Experte internationale des cils • Formatrice • Juge • Intervenante</p>
+              <ul>
+                <li>Experte de l&#x27;effet EYELINER / « Cat-Eye »</li>
+                <li>Formatrice pour les cours de base et les programmes professionnels avancés</li>
+                <li>Lauréate de championnats internationaux</li>
+                <li>Juge de championnats internationaux de beauté</li>
+                <li>Intervenante lors de conférences professionnelles et d&#x27;événements beauté</li>
+                <li>Plus de 10 ans d&#x27;expérience professionnelle dans le secteur de la beauté</li>
+                <li>Des centaines d&#x27;élèves dans le monde, dont des stylistes de cils qui ont bâti de belles carrières et remporté des prix lors de championnats internationaux</li>
+                <li>Ambassadrice de la marque Lash Zone</li>
+              </ul>
+              <p>Je n&#x27;enseigne pas seulement des techniques : je partage une expérience concrète, une approche structurée et un état d&#x27;esprit professionnel qui aident les stylistes de cils à faire passer leurs compétences et leur carrière au niveau supérieur.</p>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/rebeka-georgieva.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.lash"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Rebeka Georgieva</span>
+                <span class="judge__meta" data-i18n="c.bg"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" lang="en" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/rebecca.volume.lash/" target="_blank" rel="noopener">@rebecca.volume.lash</a>
+              <ul>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – 1st&nbsp;Place, Russian Volume</li>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – Queen of Classic Lashes Title</li>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – 3rd&nbsp;Place, Light Volume</li>
+                <li>American Beauty Championship 2025 – 1st&nbsp;Place, Classic Lashes</li>
+                <li>American Beauty Championship 2025 – 2nd&nbsp;Place, Light Volume</li>
+                <li>Supreme Empire 2025 – 1st&nbsp;Place, Classic Lashes</li>
+              </ul>
+              <p>In addition to competing, I have also been invited as a judge at international events:</p>
+              <ul>
+                <li>Art Lash &amp; Brow Congress 2025 – Assistant Judge</li>
+                <li>Lash and Brow Talent 2026 – Online Judge</li>
+                <li>Lash and Brow Talent 2026 – Official Jury Member, Grand Final</li>
+                <li>Identity.Beauty. Awards – judge</li>
+              </ul>
+              <p>My mission is to elevate industry standards, inspire the next generation of lash artists, and contribute to the professional growth of the beauty industry.</p>
+            </div>
+            <div class="judge__bio" lang="ru" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/rebecca.volume.lash/" target="_blank" rel="noopener">@rebecca.volume.lash</a>
+              <ul>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 — 1-е&nbsp;место, «Русский объём»</li>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 — титул «Королева классического наращивания»</li>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 — 3-е&nbsp;место, «Лёгкий объём»</li>
+                <li>American Beauty Championship 2025 — 1-е&nbsp;место, классическое наращивание</li>
+                <li>American Beauty Championship 2025 — 2-е&nbsp;место, «Лёгкий объём»</li>
+                <li>Supreme Empire 2025 — 1-е&nbsp;место, классическое наращивание</li>
+              </ul>
+              <p>Помимо участия в соревнованиях, меня приглашают в жюри международных мероприятий:</p>
+              <ul>
+                <li>Art Lash &amp; Brow Congress 2025 — помощник судьи</li>
+                <li>Lash and Brow Talent 2026 — онлайн-судья</li>
+                <li>Lash and Brow Talent 2026 — официальный член жюри, Гранд-финал</li>
+                <li>Identity.Beauty. Awards — судья</li>
+              </ul>
+              <p>Моя миссия — повышать стандарты индустрии, вдохновлять новое поколение лэшмейкеров и вносить вклад в профессиональное развитие индустрии красоты.</p>
+            </div>
+            <div class="judge__bio" lang="de" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/rebecca.volume.lash/" target="_blank" rel="noopener">@rebecca.volume.lash</a>
+              <ul>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – 1.&nbsp;Platz, Russian Volume</li>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – Titel „Queen of Classic Lashes“</li>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – 3.&nbsp;Platz, Light Volume</li>
+                <li>American Beauty Championship 2025 – 1.&nbsp;Platz, klassische Wimpern</li>
+                <li>American Beauty Championship 2025 – 2.&nbsp;Platz, Light Volume</li>
+                <li>Supreme Empire 2025 – 1.&nbsp;Platz, klassische Wimpern</li>
+              </ul>
+              <p>Neben meinen Wettkämpfen wurde ich auch als Jurorin zu internationalen Events eingeladen:</p>
+              <ul>
+                <li>Art Lash &amp; Brow Congress 2025 – Assistenz-Jurorin</li>
+                <li>Lash and Brow Talent 2026 – Online-Jurorin</li>
+                <li>Lash and Brow Talent 2026 – offizielles Jurymitglied, Grand Final</li>
+                <li>Identity.Beauty. Awards – Jurorin</li>
+              </ul>
+              <p>Meine Mission ist es, die Standards der Branche zu heben, die nächste Generation von Lash-Artists zu inspirieren und zur beruflichen Entwicklung der Beauty-Branche beizutragen.</p>
+            </div>
+            <div class="judge__bio" lang="pl" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/rebecca.volume.lash/" target="_blank" rel="noopener">@rebecca.volume.lash</a>
+              <ul>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – 1.&nbsp;miejsce, Russian Volume</li>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – tytuł Queen of Classic Lashes</li>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – 3.&nbsp;miejsce, Light Volume</li>
+                <li>American Beauty Championship 2025 – 1.&nbsp;miejsce, rzęsy klasyczne</li>
+                <li>American Beauty Championship 2025 – 2.&nbsp;miejsce, Light Volume</li>
+                <li>Supreme Empire 2025 – 1.&nbsp;miejsce, rzęsy klasyczne</li>
+              </ul>
+              <p>Oprócz startów w zawodach byłam również zapraszana do sędziowania na wydarzeniach międzynarodowych:</p>
+              <ul>
+                <li>Art Lash &amp; Brow Congress 2025 – asystentka sędziego</li>
+                <li>Lash and Brow Talent 2026 – sędzia online</li>
+                <li>Lash and Brow Talent 2026 – oficjalna członkini jury, Wielki Finał</li>
+                <li>Identity.Beauty. Awards – sędzia</li>
+              </ul>
+              <p>Moją misją jest podnoszenie standardów branży, inspirowanie nowego pokolenia stylistek rzęs i wspieranie zawodowego rozwoju branży beauty.</p>
+            </div>
+            <div class="judge__bio" lang="it" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/rebecca.volume.lash/" target="_blank" rel="noopener">@rebecca.volume.lash</a>
+              <ul>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – 1°&nbsp;posto, Russian Volume</li>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – titolo Queen of Classic Lashes</li>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – 3°&nbsp;posto, Light Volume</li>
+                <li>American Beauty Championship 2025 – 1°&nbsp;posto, ciglia classiche</li>
+                <li>American Beauty Championship 2025 – 2°&nbsp;posto, Light Volume</li>
+                <li>Supreme Empire 2025 – 1°&nbsp;posto, ciglia classiche</li>
+              </ul>
+              <p>Oltre a gareggiare, sono stata invitata come giudice a eventi internazionali:</p>
+              <ul>
+                <li>Art Lash &amp; Brow Congress 2025 – giudice assistente</li>
+                <li>Lash and Brow Talent 2026 – giudice online</li>
+                <li>Lash and Brow Talent 2026 – membro ufficiale della giuria, Gran Finale</li>
+                <li>Identity.Beauty. Awards – giudice</li>
+              </ul>
+              <p>La mia missione è elevare gli standard del settore, ispirare la nuova generazione di lash artist e contribuire alla crescita professionale del mondo beauty.</p>
+            </div>
+            <div class="judge__bio" lang="fr" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/rebecca.volume.lash/" target="_blank" rel="noopener">@rebecca.volume.lash</a>
+              <ul>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – 1re&nbsp;place, Russian Volume</li>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – titre Queen of Classic Lashes</li>
+                <li>Queen of Lashes, Nails &amp; PMU 2025 – 3e&nbsp;place, Light Volume</li>
+                <li>American Beauty Championship 2025 – 1re&nbsp;place, cils classiques</li>
+                <li>American Beauty Championship 2025 – 2e&nbsp;place, Light Volume</li>
+                <li>Supreme Empire 2025 – 1re&nbsp;place, cils classiques</li>
+              </ul>
+              <p>En plus de la compétition, j&#x27;ai également été invitée comme juge lors d&#x27;événements internationaux :</p>
+              <ul>
+                <li>Art Lash &amp; Brow Congress 2025 – juge assistante</li>
+                <li>Lash and Brow Talent 2026 – juge en ligne</li>
+                <li>Lash and Brow Talent 2026 – membre officielle du jury, Grande Finale</li>
+                <li>Identity.Beauty. Awards – juge</li>
+              </ul>
+              <p>Ma mission est d&#x27;élever les standards du secteur, d&#x27;inspirer la nouvelle génération de stylistes de cils et de contribuer au développement professionnel de l&#x27;industrie de la beauté.</p>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/yulia-shepel.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.lash"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Yulia Shepel</span>
+                <span class="judge__meta" data-i18n="c.it"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" lang="en" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/imperial_yuliashepel/" target="_blank" rel="noopener">@imperial_yuliashepel</a>
+              <p class="judge__tagline">International Lash Artist • Master Trainer • Judge</p>
+              <p>An award-winning Lash Artist and internationally recognized Master Trainer, Yulia Shepel is celebrated for her expertise in Brazilian Volume, refined technique and exceptional attention to detail.</p>
+              <p>As an Imperial Lash &amp; Brows Trainer and a multi trophy winner, she has earned her place among the respected professionals of the international lash industry.</p>
+              <p>Yulia has been invited to judge prestigious beauty championships worldwide, bringing a trained eye for precision, symmetry, creativity and true artistry.</p>
+              <p>Experience. Excellence. Vision.</p>
+            </div>
+            <div class="judge__bio" lang="ru" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/imperial_yuliashepel/" target="_blank" rel="noopener">@imperial_yuliashepel</a>
+              <p class="judge__tagline">Международный лэшмейкер • Мастер-тренер • Судья</p>
+              <p>Отмеченный наградами лэшмейкер и признанный на международном уровне мастер-тренер, Yulia Shepel известна мастерством в бразильском объёме, отточенной техникой и исключительным вниманием к деталям.</p>
+              <p>Как тренер Imperial Lash &amp; Brows и многократная обладательница наград, она заслуженно входит в число уважаемых профессионалов международной lash-индустрии.</p>
+              <p>Её приглашают в жюри престижных чемпионатов красоты по всему миру: у неё намётанный глаз на точность, симметрию, креативность и настоящее мастерство.</p>
+              <p>Опыт. Совершенство. Видение.</p>
+            </div>
+            <div class="judge__bio" lang="de" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/imperial_yuliashepel/" target="_blank" rel="noopener">@imperial_yuliashepel</a>
+              <p class="judge__tagline">Internationale Lash-Artistin • Master-Trainerin • Jurorin</p>
+              <p>Als preisgekrönte Lash-Artistin und international anerkannte Master-Trainerin ist Yulia Shepel bekannt für ihre Expertise im Brazilian Volume, ihre verfeinerte Technik und ihre außergewöhnliche Liebe zum Detail.</p>
+              <p>Als Imperial Lash &amp; Brows Trainerin und mehrfache Pokalgewinnerin hat sie sich ihren Platz unter den angesehenen Profis der internationalen Lash-Branche verdient.</p>
+              <p>Yulia wird weltweit als Jurorin zu renommierten Beauty-Meisterschaften eingeladen und bringt ein geschultes Auge für Präzision, Symmetrie, Kreativität und wahre Kunstfertigkeit mit.</p>
+              <p>Erfahrung. Exzellenz. Vision.</p>
+            </div>
+            <div class="judge__bio" lang="pl" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/imperial_yuliashepel/" target="_blank" rel="noopener">@imperial_yuliashepel</a>
+              <p class="judge__tagline">Międzynarodowa stylistka rzęs • Master Trainer • Sędzia</p>
+              <p>Nagradzana stylistka rzęs i uznana na arenie międzynarodowej Master Trainer, Yulia Shepel słynie z mistrzostwa w Brazilian Volume, dopracowanej techniki i wyjątkowej dbałości o szczegóły.</p>
+              <p>Jako trenerka Imperial Lash &amp; Brows i wielokrotna zdobywczyni trofeów zasłużenie znalazła się wśród cenionych profesjonalistów międzynarodowej branży rzęsowej.</p>
+              <p>Yulia jest zapraszana do sędziowania prestiżowych mistrzostw beauty na całym świecie, wnosząc wyćwiczone oko do oceny precyzji, symetrii, kreatywności i prawdziwego kunsztu.</p>
+              <p>Doświadczenie. Doskonałość. Wizja.</p>
+            </div>
+            <div class="judge__bio" lang="it" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/imperial_yuliashepel/" target="_blank" rel="noopener">@imperial_yuliashepel</a>
+              <p class="judge__tagline">Lash artist internazionale • Master trainer • Giudice</p>
+              <p>Lash artist pluripremiata e master trainer riconosciuta a livello internazionale, Yulia Shepel è apprezzata per la sua maestria nel Brazilian Volume, la tecnica raffinata e un&#x27;eccezionale attenzione ai dettagli.</p>
+              <p>Come trainer Imperial Lash &amp; Brows e vincitrice di numerosi trofei, si è guadagnata un posto tra i professionisti più stimati del settore ciglia internazionale.</p>
+              <p>Yulia è invitata come giudice a prestigiosi campionati di bellezza in tutto il mondo, portando un occhio allenato per precisione, simmetria, creatività e vera arte.</p>
+              <p>Esperienza. Eccellenza. Visione.</p>
+            </div>
+            <div class="judge__bio" lang="fr" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/imperial_yuliashepel/" target="_blank" rel="noopener">@imperial_yuliashepel</a>
+              <p class="judge__tagline">Styliste de cils internationale • Master Trainer • Juge</p>
+              <p>Styliste de cils primée et Master Trainer reconnue à l&#x27;international, Yulia Shepel est réputée pour son expertise en Brazilian Volume, sa technique raffinée et son attention exceptionnelle aux détails.</p>
+              <p>Formatrice Imperial Lash &amp; Brows et lauréate de nombreux trophées, elle s&#x27;est imposée parmi les professionnels respectés de l&#x27;industrie internationale des cils.</p>
+              <p>Yulia est invitée à juger de prestigieux championnats de beauté dans le monde entier, avec un œil exercé pour la précision, la symétrie, la créativité et le véritable art.</p>
+              <p>Expérience. Excellence. Vision.</p>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/letizia-barone.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.lash"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Letizia Barone</span>
+                <span class="judge__meta" data-i18n="c.it"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/_elle_hub/" target="_blank" rel="noopener">@_elle_hub</a>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/jessica-salcinovic.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.lami"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Jessica Salcinovic</span>
+                <span class="judge__meta" data-i18n="c.de"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" lang="en" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/lumiere.by.js/" target="_blank" rel="noopener">@lumiere.by.js</a>
+              <p class="judge__tagline">Owner of the beauty studio and Academy Lumiere by J.S. in Friedrichshafen</p>
+              <p>I have competed in a number of championships myself.</p>
+              <ul>
+                <li>12 awards won</li>
+                <li>including 8 × 1st&nbsp;place</li>
+                <li>and 4 × 2nd&nbsp;place</li>
+              </ul>
+              <p>Because I want to stay part of the competition world and keep growing my expertise, I joined the jury.</p>
+              <p>My passion for perfect results turned into expertise.</p>
+              <p>Today I live and teach Korean Lash Lift with the highest standards and a lot of heart.</p>
+            </div>
+            <div class="judge__bio" lang="ru" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/lumiere.by.js/" target="_blank" rel="noopener">@lumiere.by.js</a>
+              <p class="judge__tagline">Владелица косметологической студии и академии Lumiere by J.S. во Фридрихсхафене</p>
+              <p>Я сама участвовала в ряде чемпионатов.</p>
+              <ul>
+                <li>12 наград</li>
+                <li>из них 8 раз — 1-е&nbsp;место</li>
+                <li>и 4 раза — 2-е&nbsp;место</li>
+              </ul>
+              <p>Я хочу и дальше оставаться частью соревнований и развивать свою экспертизу, поэтому стала членом жюри.</p>
+              <p>Страсть к идеальному результату переросла в экспертизу.</p>
+              <p>Сегодня я живу корейским ламинированием ресниц (Korean Lash Lift) и обучаю ему с максимальной требовательностью и всем сердцем.</p>
+            </div>
+            <div class="judge__bio" lang="de" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/lumiere.by.js/" target="_blank" rel="noopener">@lumiere.by.js</a>
+              <p class="judge__tagline">Inhaberin Kosmetikstudio und Academy Lumiere by J.S. in Friedrichshafen</p>
+              <p>Ich habe selbst an einigen Wettkämpfen teilgenommen.</p>
+              <ul>
+                <li>12 Auszeichnungen gewonnen</li>
+                <li>davon 8× 1.&nbsp;Platz</li>
+                <li>und 4× 2.&nbsp;Platz</li>
+              </ul>
+              <p>Da ich weiterhin ein Teil des Wettkampfes sein und meine Expertise ausbauen möchte, bin ich ein Teil der Jury geworden.</p>
+              <p>Aus Leidenschaft für perfekte Ergebnisse wurde Expertise.</p>
+              <p>Heute lebe und lehre ich Korean Lashlift mit höchstem Anspruch und ganz viel Herz.</p>
+            </div>
+            <div class="judge__bio" lang="pl" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/lumiere.by.js/" target="_blank" rel="noopener">@lumiere.by.js</a>
+              <p class="judge__tagline">Właścicielka studia kosmetycznego i Akademii Lumiere by J.S. we Friedrichshafen</p>
+              <p>Sama brałam udział w wielu zawodach.</p>
+              <ul>
+                <li>12 zdobytych nagród</li>
+                <li>w tym 8× 1.&nbsp;miejsce</li>
+                <li>i 4× 2.&nbsp;miejsce</li>
+              </ul>
+              <p>Ponieważ chcę nadal być częścią zawodów i rozwijać swoją wiedzę, dołączyłam do jury.</p>
+              <p>Z pasji do perfekcyjnych efektów narodziła się ekspertyza.</p>
+              <p>Dziś żyję Korean Lash Liftem i uczę go z najwyższymi wymaganiami i całym sercem.</p>
+            </div>
+            <div class="judge__bio" lang="it" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/lumiere.by.js/" target="_blank" rel="noopener">@lumiere.by.js</a>
+              <p class="judge__tagline">Titolare del centro estetico e dell&#x27;Academy Lumiere by J.S. a Friedrichshafen</p>
+              <p>Ho partecipato personalmente a diverse competizioni.</p>
+              <ul>
+                <li>12 premi vinti</li>
+                <li>di cui 8 primi posti</li>
+                <li>e 4 secondi posti</li>
+              </ul>
+              <p>Poiché voglio continuare a far parte delle competizioni e ampliare la mia esperienza, sono entrata a far parte della giuria.</p>
+              <p>Dalla passione per i risultati perfetti è nata l&#x27;esperienza.</p>
+              <p>Oggi vivo e insegno il Korean Lash Lift con il massimo rigore e tanto cuore.</p>
+            </div>
+            <div class="judge__bio" lang="fr" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/lumiere.by.js/" target="_blank" rel="noopener">@lumiere.by.js</a>
+              <p class="judge__tagline">Propriétaire de l&#x27;institut de beauté et de l&#x27;Academy Lumiere by J.S. à Friedrichshafen</p>
+              <p>J&#x27;ai moi-même participé à plusieurs compétitions.</p>
+              <ul>
+                <li>12 récompenses remportées</li>
+                <li>dont 8 premières places</li>
+                <li>et 4 deuxièmes places</li>
+              </ul>
+              <p>Comme je souhaite continuer à faire partie de la compétition et développer mon expertise, j&#x27;ai rejoint le jury.</p>
+              <p>Ma passion pour des résultats parfaits est devenue une expertise.</p>
+              <p>Aujourd&#x27;hui, je vis et j&#x27;enseigne le Korean Lash Lift avec la plus grande exigence et beaucoup de cœur.</p>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/maria-harizanova.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.lami"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Maria Harizanova</span>
+                <span class="judge__meta" data-i18n="c.bg"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/makeup.harizanova/" target="_blank" rel="noopener">@makeup.harizanova</a>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/vira-dovbeniuk.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.nails"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Vira Dovbeniuk</span>
+                <span class="judge__meta" data-i18n="c.us"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" lang="en" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/vira_nails_chicago/" target="_blank" rel="noopener">@vira_nails_chicago</a>
+              <p class="judge__tagline">Professional credentials / regalia</p>
+              <ul>
+                <li>International Nail Competition Judge</li>
+                <li>Nail Educator &amp; Instructor in Chicago</li>
+                <li>Professional Nail Artist since 2020</li>
+                <li>Licensed Nail Technician / Pedicure Specialist</li>
+                <li>Footlogix Certified Professional</li>
+                <li>Multiple-time international nail competition winner and medalist</li>
+                <li>Nailympia USA, Orlando:
+                  <ul>
+                    <li>1st&nbsp;Place — Salon Nails</li>
+                    <li>3rd&nbsp;Place — Stiletto</li>
+                    <li>3rd&nbsp;Place — Joy of Nails</li>
+                  </ul>
+                </li>
+                <li>Beauty Star Championship:
+                  <ul>
+                    <li>2nd&nbsp;Place — Aquarium French</li>
+                    <li>3rd&nbsp;Place — Extreme Nail</li>
+                  </ul>
+                </li>
+                <li>Award winner at Persha Stolytsia International Nail Championship:
+                  <ul>
+                    <li>1st&nbsp;Place — Salon Nails</li>
+                    <li>1st&nbsp;Place — Extreme Nail</li>
+                  </ul>
+                </li>
+                <li>Educator Member of the American Nail Artists Association (ANAA)</li>
+                <li>Founder of Marshmallow Beauty Bar NAILS, Chicago</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="ru" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/vira_nails_chicago/" target="_blank" rel="noopener">@vira_nails_chicago</a>
+              <p class="judge__tagline">Профессиональные регалии</p>
+              <ul>
+                <li>Судья международных конкурсов по маникюру и нейл-арту</li>
+                <li>Преподаватель и инструктор по маникюру в Чикаго</li>
+                <li>Профессиональный нейл-мастер с 2020 года</li>
+                <li>Лицензированный нейл-техник / специалист по педикюру</li>
+                <li>Сертифицированный специалист Footlogix</li>
+                <li>Многократная победительница и призёр международных конкурсов по маникюру</li>
+                <li>Nailympia USA, Орландо:
+                  <ul>
+                    <li>1-е&nbsp;место — Salon Nails</li>
+                    <li>3-е&nbsp;место — Stiletto</li>
+                    <li>3-е&nbsp;место — Joy of Nails</li>
+                  </ul>
+                </li>
+                <li>Beauty Star Championship:
+                  <ul>
+                    <li>2-е&nbsp;место — Aquarium French</li>
+                    <li>3-е&nbsp;место — Extreme Nail</li>
+                  </ul>
+                </li>
+                <li>Призёр международного чемпионата по маникюру Persha Stolytsia:
+                  <ul>
+                    <li>1-е&nbsp;место — Salon Nails</li>
+                    <li>1-е&nbsp;место — Extreme Nail</li>
+                  </ul>
+                </li>
+                <li>Член-преподаватель Американской ассоциации нейл-мастеров (ANAA)</li>
+                <li>Основательница Marshmallow Beauty Bar NAILS, Чикаго</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="de" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/vira_nails_chicago/" target="_blank" rel="noopener">@vira_nails_chicago</a>
+              <p class="judge__tagline">Berufliche Qualifikationen / Auszeichnungen</p>
+              <ul>
+                <li>Jurorin bei internationalen Nageldesign-Wettbewerben</li>
+                <li>Nageldesign-Dozentin und Trainerin in Chicago</li>
+                <li>Professionelle Nageldesignerin seit 2020</li>
+                <li>Lizenzierte Nageltechnikerin / Pediküre-Spezialistin</li>
+                <li>Footlogix-zertifizierte Fachkraft</li>
+                <li>Mehrfache Siegerin und Medaillengewinnerin internationaler Nageldesign-Wettbewerbe</li>
+                <li>Nailympia USA, Orlando:
+                  <ul>
+                    <li>1.&nbsp;Platz — Salon Nails</li>
+                    <li>3.&nbsp;Platz — Stiletto</li>
+                    <li>3.&nbsp;Platz — Joy of Nails</li>
+                  </ul>
+                </li>
+                <li>Beauty Star Championship:
+                  <ul>
+                    <li>2.&nbsp;Platz — Aquarium French</li>
+                    <li>3.&nbsp;Platz — Extreme Nail</li>
+                  </ul>
+                </li>
+                <li>Preisträgerin der internationalen Nail-Meisterschaft Persha Stolytsia:
+                  <ul>
+                    <li>1.&nbsp;Platz — Salon Nails</li>
+                    <li>1.&nbsp;Platz — Extreme Nail</li>
+                  </ul>
+                </li>
+                <li>Educator-Mitglied der American Nail Artists Association (ANAA)</li>
+                <li>Gründerin von Marshmallow Beauty Bar NAILS, Chicago</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="pl" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/vira_nails_chicago/" target="_blank" rel="noopener">@vira_nails_chicago</a>
+              <p class="judge__tagline">Kwalifikacje i osiągnięcia zawodowe</p>
+              <ul>
+                <li>Sędzia międzynarodowych zawodów stylizacji paznokci</li>
+                <li>Edukatorka i instruktorka stylizacji paznokci w Chicago</li>
+                <li>Profesjonalna stylistka paznokci od 2020 roku</li>
+                <li>Licencjonowana technik paznokci / specjalistka pedicure</li>
+                <li>Certyfikowana specjalistka Footlogix</li>
+                <li>Wielokrotna zwyciężczyni i medalistka międzynarodowych zawodów stylizacji paznokci</li>
+                <li>Nailympia USA, Orlando:
+                  <ul>
+                    <li>1.&nbsp;miejsce — Salon Nails</li>
+                    <li>3.&nbsp;miejsce — Stiletto</li>
+                    <li>3.&nbsp;miejsce — Joy of Nails</li>
+                  </ul>
+                </li>
+                <li>Beauty Star Championship:
+                  <ul>
+                    <li>2.&nbsp;miejsce — Aquarium French</li>
+                    <li>3.&nbsp;miejsce — Extreme Nail</li>
+                  </ul>
+                </li>
+                <li>Laureatka Międzynarodowych Mistrzostw Stylizacji Paznokci Persha Stolytsia:
+                  <ul>
+                    <li>1.&nbsp;miejsce — Salon Nails</li>
+                    <li>1.&nbsp;miejsce — Extreme Nail</li>
+                  </ul>
+                </li>
+                <li>Członkini-edukatorka American Nail Artists Association (ANAA)</li>
+                <li>Założycielka Marshmallow Beauty Bar NAILS, Chicago</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="it" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/vira_nails_chicago/" target="_blank" rel="noopener">@vira_nails_chicago</a>
+              <p class="judge__tagline">Qualifiche e riconoscimenti professionali</p>
+              <ul>
+                <li>Giudice di competizioni internazionali di nail art</li>
+                <li>Educatrice e istruttrice di onicotecnica a Chicago</li>
+                <li>Nail artist professionista dal 2020</li>
+                <li>Onicotecnica abilitata / specialista in pedicure</li>
+                <li>Professionista certificata Footlogix</li>
+                <li>Più volte vincitrice e medagliata in competizioni internazionali di nail art</li>
+                <li>Nailympia USA, Orlando:
+                  <ul>
+                    <li>1°&nbsp;posto — Salon Nails</li>
+                    <li>3°&nbsp;posto — Stiletto</li>
+                    <li>3°&nbsp;posto — Joy of Nails</li>
+                  </ul>
+                </li>
+                <li>Beauty Star Championship:
+                  <ul>
+                    <li>2°&nbsp;posto — Aquarium French</li>
+                    <li>3°&nbsp;posto — Extreme Nail</li>
+                  </ul>
+                </li>
+                <li>Premiata al campionato internazionale di unghie Persha Stolytsia:
+                  <ul>
+                    <li>1°&nbsp;posto — Salon Nails</li>
+                    <li>1°&nbsp;posto — Extreme Nail</li>
+                  </ul>
+                </li>
+                <li>Socia educatrice dell&#x27;American Nail Artists Association (ANAA)</li>
+                <li>Fondatrice di Marshmallow Beauty Bar NAILS, Chicago</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="fr" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/vira_nails_chicago/" target="_blank" rel="noopener">@vira_nails_chicago</a>
+              <p class="judge__tagline">Qualifications et distinctions professionnelles</p>
+              <ul>
+                <li>Juge de compétitions internationales d&#x27;onglerie</li>
+                <li>Formatrice et instructrice en onglerie à Chicago</li>
+                <li>Prothésiste ongulaire professionnelle depuis 2020</li>
+                <li>Technicienne ongulaire diplômée / spécialiste en pédicure</li>
+                <li>Professionnelle certifiée Footlogix</li>
+                <li>Plusieurs fois lauréate et médaillée de compétitions internationales d&#x27;onglerie</li>
+                <li>Nailympia USA, Orlando :
+                  <ul>
+                    <li>1re&nbsp;place — Salon Nails</li>
+                    <li>3e&nbsp;place — Stiletto</li>
+                    <li>3e&nbsp;place — Joy of Nails</li>
+                  </ul>
+                </li>
+                <li>Beauty Star Championship :
+                  <ul>
+                    <li>2e&nbsp;place — Aquarium French</li>
+                    <li>3e&nbsp;place — Extreme Nail</li>
+                  </ul>
+                </li>
+                <li>Lauréate du championnat international d&#x27;onglerie Persha Stolytsia :
+                  <ul>
+                    <li>1re&nbsp;place — Salon Nails</li>
+                    <li>1re&nbsp;place — Extreme Nail</li>
+                  </ul>
+                </li>
+                <li>Membre formatrice de l&#x27;American Nail Artists Association (ANAA)</li>
+                <li>Fondatrice de Marshmallow Beauty Bar NAILS, Chicago</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/hristina-ilieva.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.nails"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Hristina Ilieva</span>
+                <span class="judge__meta" data-i18n="c.bg"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/ilievabeautyschool/" target="_blank" rel="noopener">@ilievabeautyschool</a>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/julia-beauty.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.hair"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Julia Beauty</span>
+                <span class="judge__meta" data-i18n="c.us"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" lang="en" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/juliabeauty_sd/" target="_blank" rel="noopener">@juliabeauty_sd</a>
+              <ul>
+                <li>World Champion 2025 — 1st&nbsp;Place, Thin Hair Category, Hair Extensions Guru Championship 2025</li>
+                <li>IBIA Accredited Level 5 International Judge</li>
+                <li>International Judge — serving on the judging panels of 12 international beauty championships in 2026</li>
+                <li>Author of an Educational Program and Educational Module for TE’ORA Beauty Academy</li>
+                <li>Team Leader — International Beauty Championships</li>
+                <li>Hair Extension Expert</li>
+                <li>Founder &amp; Educator — Julia Beauty Academy</li>
+                <li>Beauty Expert of the Year 2026 — 1st&nbsp;Place, UBA 2026 USA</li>
+                <li>IBA Beauty Awards XIII — Laureate, Best Hair Extension Innovator</li>
+                <li>IBA Beauty Awards XIII — Laureate, Best Natural Look Hair Extension</li>
+                <li>National Counselor — HEIDA (Hair Extension Industry Development Association), California, USA</li>
+                <li>Professional Member — HEIDA • IBIA • IBPA</li>
+                <li>Licensed Cosmetologist — California, USA</li>
+                <li>Licensed Cosmetologist — New York, USA</li>
+                <li>Author of the professional book “The Architecture of Hair…”</li>
+                <li>Creator and Author of 3D Layers Capsules Method™ by Julia Beauty</li>
+                <li>International Educator and Speaker in the Hair Extensions Industry</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="ru" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/juliabeauty_sd/" target="_blank" rel="noopener">@juliabeauty_sd</a>
+              <ul>
+                <li>Чемпионка мира 2025 — 1-е&nbsp;место в категории Thin Hair («Тонкие волосы»), Hair Extensions Guru Championship 2025</li>
+                <li>Международный судья IBIA, аккредитация 5-го уровня</li>
+                <li>Международный судья — член жюри 12 международных чемпионатов красоты в 2026 году</li>
+                <li>Автор образовательной программы и учебного модуля для TE’ORA Beauty Academy</li>
+                <li>Капитан команды — международные чемпионаты красоты</li>
+                <li>Эксперт по наращиванию волос</li>
+                <li>Основательница и преподаватель — Julia Beauty Academy</li>
+                <li>«Бьюти-эксперт года 2026» — 1-е&nbsp;место, UBA 2026 USA</li>
+                <li>IBA Beauty Awards XIII — лауреат, Best Hair Extension Innovator</li>
+                <li>IBA Beauty Awards XIII — лауреат, Best Natural Look Hair Extension</li>
+                <li>Национальный советник HEIDA (Hair Extension Industry Development Association), Калифорния, США</li>
+                <li>Профессиональный член HEIDA • IBIA • IBPA</li>
+                <li>Лицензированный косметолог — Калифорния, США</li>
+                <li>Лицензированный косметолог — Нью-Йорк, США</li>
+                <li>Автор профессиональной книги «The Architecture of Hair…»</li>
+                <li>Создатель и автор метода 3D Layers Capsules Method™ by Julia Beauty</li>
+                <li>Международный преподаватель и спикер в индустрии наращивания волос</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="de" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/juliabeauty_sd/" target="_blank" rel="noopener">@juliabeauty_sd</a>
+              <ul>
+                <li>Weltmeisterin 2025 — 1.&nbsp;Platz, Kategorie Thin Hair, Hair Extensions Guru Championship 2025</li>
+                <li>IBIA-akkreditierte internationale Jurorin, Level 5</li>
+                <li>Internationale Jurorin — in der Jury von 12 internationalen Beauty-Meisterschaften im Jahr 2026</li>
+                <li>Autorin eines Bildungsprogramms und Schulungsmoduls für die TE’ORA Beauty Academy</li>
+                <li>Teamleiterin — internationale Beauty-Meisterschaften</li>
+                <li>Expertin für Haarverlängerung</li>
+                <li>Gründerin &amp; Trainerin — Julia Beauty Academy</li>
+                <li>Beauty-Expertin des Jahres 2026 — 1.&nbsp;Platz, UBA 2026 USA</li>
+                <li>IBA Beauty Awards XIII — Preisträgerin, Best Hair Extension Innovator</li>
+                <li>IBA Beauty Awards XIII — Preisträgerin, Best Natural Look Hair Extension</li>
+                <li>National Counselor — HEIDA (Hair Extension Industry Development Association), Kalifornien, USA</li>
+                <li>Professionelles Mitglied — HEIDA • IBIA • IBPA</li>
+                <li>Lizenzierte Kosmetikerin — Kalifornien, USA</li>
+                <li>Lizenzierte Kosmetikerin — New York, USA</li>
+                <li>Autorin des Fachbuchs „The Architecture of Hair…“</li>
+                <li>Entwicklerin und Autorin der 3D Layers Capsules Method™ by Julia Beauty</li>
+                <li>Internationale Trainerin und Speakerin in der Haarverlängerungsbranche</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="pl" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/juliabeauty_sd/" target="_blank" rel="noopener">@juliabeauty_sd</a>
+              <ul>
+                <li>Mistrzyni Świata 2025 — 1.&nbsp;miejsce, kategoria Thin Hair, Hair Extensions Guru Championship 2025</li>
+                <li>Akredytowana sędzia międzynarodowa IBIA, poziom 5</li>
+                <li>Sędzia międzynarodowa — w jury 12 międzynarodowych mistrzostw beauty w 2026 roku</li>
+                <li>Autorka programu edukacyjnego i modułu szkoleniowego dla TE’ORA Beauty Academy</li>
+                <li>Liderka zespołu — międzynarodowe mistrzostwa beauty</li>
+                <li>Ekspertka przedłużania włosów</li>
+                <li>Założycielka i edukatorka — Julia Beauty Academy</li>
+                <li>Ekspertka Beauty Roku 2026 — 1.&nbsp;miejsce, UBA 2026 USA</li>
+                <li>IBA Beauty Awards XIII — laureatka, Best Hair Extension Innovator</li>
+                <li>IBA Beauty Awards XIII — laureatka, Best Natural Look Hair Extension</li>
+                <li>National Counselor — HEIDA (Hair Extension Industry Development Association), Kalifornia, USA</li>
+                <li>Członkini HEIDA • IBIA • IBPA</li>
+                <li>Licencjonowana kosmetolożka — Kalifornia, USA</li>
+                <li>Licencjonowana kosmetolożka — Nowy Jork, USA</li>
+                <li>Autorka książki branżowej „The Architecture of Hair…”</li>
+                <li>Twórczyni i autorka metody 3D Layers Capsules Method™ by Julia Beauty</li>
+                <li>Międzynarodowa edukatorka i prelegentka w branży przedłużania włosów</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="it" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/juliabeauty_sd/" target="_blank" rel="noopener">@juliabeauty_sd</a>
+              <ul>
+                <li>Campionessa del mondo 2025 — 1°&nbsp;posto, categoria Thin Hair, Hair Extensions Guru Championship 2025</li>
+                <li>Giudice internazionale accreditata IBIA, livello 5</li>
+                <li>Giudice internazionale — nelle giurie di 12 campionati internazionali di bellezza nel 2026</li>
+                <li>Autrice di un programma formativo e di un modulo didattico per la TE’ORA Beauty Academy</li>
+                <li>Team leader — campionati internazionali di bellezza</li>
+                <li>Esperta di extension capelli</li>
+                <li>Fondatrice ed educatrice — Julia Beauty Academy</li>
+                <li>Beauty Expert of the Year 2026 — 1°&nbsp;posto, UBA 2026 USA</li>
+                <li>IBA Beauty Awards XIII — premiata, Best Hair Extension Innovator</li>
+                <li>IBA Beauty Awards XIII — premiata, Best Natural Look Hair Extension</li>
+                <li>National Counselor — HEIDA (Hair Extension Industry Development Association), California, USA</li>
+                <li>Membro professionale — HEIDA • IBIA • IBPA</li>
+                <li>Cosmetologa abilitata — California, USA</li>
+                <li>Cosmetologa abilitata — New York, USA</li>
+                <li>Autrice del libro professionale “The Architecture of Hair…”</li>
+                <li>Ideatrice e autrice del 3D Layers Capsules Method™ by Julia Beauty</li>
+                <li>Educatrice e speaker internazionale nel settore delle extension capelli</li>
+              </ul>
+            </div>
+            <div class="judge__bio" lang="fr" hidden>
+              <a class="judge__ig" href="https://www.instagram.com/juliabeauty_sd/" target="_blank" rel="noopener">@juliabeauty_sd</a>
+              <ul>
+                <li>Championne du monde 2025 — 1re&nbsp;place, catégorie Thin Hair, Hair Extensions Guru Championship 2025</li>
+                <li>Juge internationale accréditée IBIA, niveau 5</li>
+                <li>Juge internationale — membre du jury de 12 championnats internationaux de beauté en 2026</li>
+                <li>Autrice d&#x27;un programme de formation et d&#x27;un module pédagogique pour la TE’ORA Beauty Academy</li>
+                <li>Cheffe d&#x27;équipe — championnats internationaux de beauté</li>
+                <li>Experte en extensions de cheveux</li>
+                <li>Fondatrice et formatrice — Julia Beauty Academy</li>
+                <li>Experte beauté de l&#x27;année 2026 — 1re&nbsp;place, UBA 2026 USA</li>
+                <li>IBA Beauty Awards XIII — lauréate, Best Hair Extension Innovator</li>
+                <li>IBA Beauty Awards XIII — lauréate, Best Natural Look Hair Extension</li>
+                <li>National Counselor — HEIDA (Hair Extension Industry Development Association), Californie, États-Unis</li>
+                <li>Membre professionnelle — HEIDA • IBIA • IBPA</li>
+                <li>Cosmétologue diplômée — Californie, États-Unis</li>
+                <li>Cosmétologue diplômée — New York, États-Unis</li>
+                <li>Autrice du livre professionnel « The Architecture of Hair… »</li>
+                <li>Créatrice et autrice de la 3D Layers Capsules Method™ by Julia Beauty</li>
+                <li>Formatrice et intervenante internationale dans le secteur des extensions de cheveux</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ: <details> работает без JavaScript -->
+    <section class="section section--dark">
+      <div class="container faq">
+        <h2 class="section__title" data-i18n="faq.title"></h2>
+        <details><summary data-i18n="faq.1.q"></summary><p data-i18n="faq.1.a"></p></details>
+        <details><summary data-i18n="faq.2.q"></summary><p data-i18n="faq.2.a"></p></details>
+        <details><summary data-i18n="faq.3.q"></summary><p data-i18n="faq.3.a"></p></details>
+        <details><summary data-i18n="faq.4.q"></summary><p data-i18n="faq.4.a"></p></details>
+        <details><summary data-i18n="faq.5.q"></summary><p data-i18n="faq.5.a"></p></details>
+      </div>
+    </section>
+
+    <!-- Registration -->
+    <section class="section cta" id="register">
+      <div class="container cta__inner">
+        <h2 class="section__title" data-i18n="cta.title"></h2>
+        <p data-i18n="cta.text"></p>
+        <a class="btn" href="https://www.instagram.com/eurasiawbcc/" target="_blank" rel="noopener" data-i18n="cta.btn"></a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© World Beauty Eurasia · <a href="https://www.instagram.com/eurasiawbcc/" target="_blank" rel="noopener">@eurasiawbcc</a> · <a href="https://www.worldbeautyeurasia.com" target="_blank" rel="noopener">worldbeautyeurasia.com</a></p>
+    </div>
+  </footer>
+
+  <!-- Окно с регалиями судьи. Наполняется из карточки в script.js -->
+  <dialog class="judge-dialog" id="judge-dialog" aria-labelledby="judge-dialog-name">
+    <div class="judge-dialog__inner">
+      <button class="judge-dialog__close" type="button" data-i18n-aria="judges.close"><span aria-hidden="true">&times;</span></button>
+      <div class="judge-dialog__head">
+        <img class="judge-dialog__photo" alt="" width="480" height="640">
+        <h3 class="judge-dialog__name" id="judge-dialog-name"></h3>
+        <p class="judge-dialog__meta"></p>
+      </div>
+      <div class="judge-dialog__body"></div>
+    </div>
+  </dialog>
+
+</body>
+</html>
