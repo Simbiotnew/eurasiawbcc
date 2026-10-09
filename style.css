@@ -531,15 +531,15 @@ body:has(.judge-dialog[open]) { overflow: hidden; }
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: .35rem;
+  gap: .3rem;
   margin: 0;
   font-size: .8rem;
   color: var(--muted);
 }
 .rules__other span { flex-basis: 100%; text-align: center; }   /* подпись отдельной строкой, 6 кнопок — в один ряд */
 .rules__other a {
-  min-width: 2.2rem;
-  padding: .2rem .45rem;
+  min-width: 2rem;
+  padding: .2rem .35rem;
   border: 1px solid rgba(201, 164, 92, .4);
   border-radius: 6px;
   color: var(--gold-light);
@@ -592,12 +592,19 @@ body:has(.judge-dialog[open]) { overflow: hidden; }
   .grid--3 { grid-template-columns: repeat(3, 1fr); }
   .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .judges { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .steps { grid-template-columns: 1fr; }   /* длинные слова («Зарегистрируйтесь») не влезали в три узкие колонки */
   .judge__name { font-size: 1.35rem; }
 }
 
 /* ---------- Десктоп ---------- */
 @media (min-width: 900px) {
   .grid--4 { grid-template-columns: repeat(4, 1fr); }
+  .steps { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Регламенты: три карточки в ряд только с 1024px, иначе кнопки языков не помещаются в одну строку */
+@media (min-width: 1024px) {
+  .rules__grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ---------- Широкий экран: меню в одну строку ----------
