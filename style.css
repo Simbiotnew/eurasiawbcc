@@ -623,3 +623,224 @@ body:has(.judge-dialog[open]) { overflow: hidden; }
   }
   .nav a { padding: 0; border-bottom: 0; font-size: .95rem; }
 }
+
+/* =====================================================================
+   ЭФФЕКТЫ
+   1) свет и искры на главном экране  2) появление блоков при прокрутке
+   3) 3D-наклон и голографический блик карточек судей  4) свечение карточек под курсором
+   Всё отключается, если в системе включено «уменьшить движение» (блок в самом конце)
+   ===================================================================== */
+
+/* ---------- Полоса прогресса прокрутки под шапкой ---------- */
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), #fff3d1);
+  transform: scaleX(var(--progress, 0));
+  transform-origin: left;
+}
+.header.is-scrolled { box-shadow: 0 10px 30px rgba(0, 0, 0, .35); }
+
+/* ---------- 1. Главный экран: световые пятна и искры ---------- */
+.hero { position: relative; overflow: hidden; isolation: isolate; }
+.hero__inner { position: relative; z-index: 1; }
+.hero__fx { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+/* Пятна: мягкие круги из radial-gradient (дешевле, чем filter: blur — не тормозит на телефонах),
+   медленно «дышат» и плывут. Анимируется только transform */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--c) 0%, transparent 68%);
+  opacity: .7;
+  will-change: transform;
+  animation: orb-float 18s ease-in-out infinite alternate;
+}
+.orb--1 { --c: #1d3aa6; width: 70vmax; height: 70vmax; left: -28vmax; top: -32vmax; }
+.orb--2 { --c: #8a6a2e; width: 52vmax; height: 52vmax; right: -22vmax; top: -2vmax; opacity: .55; animation-duration: 22s; animation-delay: -6s; }
+.orb--3 { --c: #3b2a7a; width: 46vmax; height: 46vmax; left: 25%; bottom: -28vmax; animation-duration: 26s; animation-delay: -12s; }
+
+@keyframes orb-float {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(6vmax, 4vmax) scale(1.12); }
+  100% { transform: translate(-4vmax, 7vmax) scale(.92); }
+}
+
+/* Искры: точки из radial-gradient, слой медленно поднимается вверх и мерцает.
+   Высота слоя 200%, поэтому сдвиг на -50% даёт бесшовный цикл */
+.sparkles {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 200%;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20% 30%, var(--gold-light), transparent),
+    radial-gradient(1px 1px at 70% 80%, #fff, transparent),
+    radial-gradient(2px 2px at 40% 60%, var(--gold), transparent),
+    radial-gradient(1px 1px at 85% 15%, var(--gold-light), transparent),
+    radial-gradient(1.5px 1.5px at 55% 45%, #fff3d1, transparent);
+  background-size: 240px 240px;
+  will-change: transform;
+  animation: sparkle-rise 40s linear infinite, sparkle-twinkle 4s ease-in-out infinite alternate;
+}
+.sparkles--far { background-size: 160px 160px; opacity: .5; animation-duration: 70s, 6s; }
+
+@keyframes sparkle-rise { to { transform: translateY(-50%); } }
+@keyframes sparkle-twinkle { from { opacity: .35; } to { opacity: .9; } }
+
+/* Переливающийся золотой текст («Eurasia» в заголовке) */
+.shine {
+  background: linear-gradient(110deg, var(--gold) 20%, var(--gold-light) 40%, #fff6dc 50%, var(--gold-light) 60%, var(--gold) 80%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s linear infinite;
+}
+@keyframes shine { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+
+/* Элементы главного экрана выплывают по очереди при загрузке */
+.hero__inner > * { animation: hero-in 1s cubic-bezier(.2, .7, .2, 1) both; }
+.hero__inner > :nth-child(2) { animation-delay: .15s; }
+.hero__inner > :nth-child(3) { animation-delay: .3s; }
+.hero__inner > :nth-child(4) { animation-delay: .45s; }
+.hero__inner > :nth-child(5) { animation-delay: .6s; }
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(30px); filter: blur(8px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+
+/* Таймер: мягкое золотое свечение ячеек */
+.countdown__timer div { animation: glow-pulse 3s ease-in-out infinite; }
+.countdown__timer div:nth-child(2) { animation-delay: .4s; }
+.countdown__timer div:nth-child(3) { animation-delay: .8s; }
+@keyframes glow-pulse {
+  50% { box-shadow: 0 0 24px rgba(201, 164, 92, .35); border-color: var(--gold); }
+}
+
+/* Золотые суммы и даты — тот же градиент, без анимации */
+.price-card__amount,
+.card__date {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold) 55%, #a8853f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- 2. Появление при прокрутке ----------
+   Класс .reveal ставит script.js (без JS всё просто видно сразу).
+   --d — задержка, чтобы карточки в сетке появлялись волной */
+.reveal {
+  opacity: 0;
+  transform: translateY(48px) scale(.97);
+  filter: blur(6px);
+}
+.reveal.reveal {   /* двойной класс сильнее, чем transition у .card */
+  transition:
+    opacity .9s cubic-bezier(.2, .7, .2, 1) var(--d, 0s),
+    transform .9s cubic-bezier(.2, .7, .2, 1) var(--d, 0s),
+    filter .9s ease var(--d, 0s);
+}
+/* Судьи поднимаются с лёгким 3D-поворотом */
+.judges > .reveal { transform: perspective(900px) rotateX(16deg) translateY(70px); }
+.reveal.is-visible { opacity: 1; transform: none; filter: none; }
+
+/* Линия под заголовком вырастает из центра */
+.section__title::after { transition: width 1s cubic-bezier(.2, .7, .2, 1) .3s; }
+.section__title.reveal::after { width: 0; }
+.section__title.reveal.is-visible::after { width: 60px; }
+
+/* ---------- 3. Карточки судей: наклон за курсором и голографический блик ----------
+   --rx/--ry (наклон) и --gx/--gy (положение блика) задаёт script.js */
+.judges { perspective: 1000px; }
+.judge {
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0));
+  transform-style: preserve-3d;
+  transition: transform .4s cubic-bezier(.2, .7, .2, 1), border-color .25s, box-shadow .25s;
+}
+.judge:hover,
+.judge:focus-visible { --lift: -6px; transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift)); box-shadow: 0 20px 40px rgba(0, 0, 0, .55), 0 0 0 1px var(--gold), 0 0 30px rgba(201, 164, 92, .25); }
+.judge.is-tilting { transition: transform .08s linear, border-color .25s, box-shadow .25s; }
+
+.judge__frame::before {     /* блик: светлая полоса + радужный отлив, видны только при наведении */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at var(--gx, 50%) var(--gy, 30%), rgba(255, 246, 220, .45), transparent 45%),
+    linear-gradient(115deg, transparent 30%, rgba(230, 201, 135, .25) 45%, rgba(160, 190, 255, .2) 52%, transparent 65%);
+  background-size: 100% 100%, 250% 250%;
+  background-position: 0 0, var(--gx, 50%) var(--gy, 50%);
+  mix-blend-mode: overlay;
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+.judge:hover .judge__frame::before { opacity: 1; }
+
+/* Блестящая полоска пробегает по плашке с именем */
+.judge__info { position: relative; overflow: hidden; }
+.judge__info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(230, 201, 135, .18), transparent);
+  transform: skewX(-20deg);
+}
+.judge:hover .judge__info::before { animation: sweep .9s ease; }
+@keyframes sweep { to { left: 130%; } }
+
+/* Окно судьи открывается с увеличением */
+.judge-dialog[open] { animation: dialog-in .35s cubic-bezier(.2, .7, .2, 1); }
+.judge-dialog[open]::backdrop { animation: fade-in .35s ease; backdrop-filter: blur(4px); }
+@keyframes dialog-in { from { opacity: 0; transform: translateY(24px) scale(.95); } }
+@keyframes fade-in { from { opacity: 0; } }
+
+/* ---------- 4. Свечение карточек под курсором ----------
+   --mx/--my — координаты курсора внутри карточки (script.js) */
+.card { position: relative; isolation: isolate; transition: border-color .3s, transform .3s, box-shadow .3s; }
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;            /* под текстом карточки, над её фоном (благодаря isolation) */
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, -50%), rgba(230, 201, 135, .14), transparent 45%);
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+.card:hover { border-color: rgba(230, 201, 135, .75); }
+.card:hover::before { opacity: 1; }
+.price-card:hover,
+.card--event:hover,
+.card--nom:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(0, 0, 0, .4); }
+
+/* Кнопки: блик пробегает при наведении */
+.btn { position: relative; overflow: hidden; }
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -75%;
+  width: 50%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .45), transparent);
+  transform: skewX(-20deg);
+}
+.btn:hover::after { animation: sweep .8s ease; }
+.btn--outline::after { background: linear-gradient(100deg, transparent, rgba(230, 201, 135, .35), transparent); }
+
+/* ---------- Уменьшенное движение: убираем анимации, оставляем всё видимым ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; filter: none; }
+  .section__title.reveal::after { width: 60px; }
+  .judge { transform: none !important; }
+  html { scroll-behavior: auto; }
+}

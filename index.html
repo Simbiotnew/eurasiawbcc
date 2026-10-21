@@ -5,6 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>World Beauty Eurasia — International Online Beauty Championship</title>
   <meta name="description" content="World Beauty Eurasia: international conference and online beauty championship 2027. Lash, Brows, PMU, Nails, Hair and more. Dates, judges, participation.">
+  <!-- SEO: главный адрес страницы (чтобы www и без www не считались дублями) -->
+  <link rel="canonical" href="https://worldbeautyeurasia.com/">
+  <!-- Подтверждение прав на сайт: сюда вставить теги из Google Search Console и Яндекс Вебмастера
+  <meta name="google-site-verification" content="...">
+  <meta name="yandex-verification" content="...">
+  -->
+
+  <!-- Превью ссылки в WhatsApp, Telegram, Facebook, X (картинка 1200×630) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="World Beauty Eurasia">
+  <meta property="og:url" content="https://worldbeautyeurasia.com/">
+  <meta property="og:title" content="World Beauty Eurasia 2027 — International Online Beauty Championship">
+  <meta property="og:description" content="Lash, Brows, PMU, Nails, Hair and more. Conference 10–24 January 2027, championship 1–15 March 2027. International jury, certificates and trophies.">
+  <meta property="og:image" content="https://worldbeautyeurasia.com/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Разметка мероприятий для Google: даты могут показываться прямо в выдаче -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://worldbeautyeurasia.com/#org",
+        "name": "World Beauty Eurasia",
+        "url": "https://worldbeautyeurasia.com/",
+        "logo": "https://worldbeautyeurasia.com/img/logo.jpg",
+        "sameAs": ["https://www.instagram.com/eurasiawbcc/"]
+      },
+      {
+        "@type": "Event",
+        "name": "World Beauty Eurasia 2027 — International Beauty Conference",
+        "startDate": "2027-01-10",
+        "endDate": "2027-01-24",
+        "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": { "@type": "VirtualLocation", "url": "https://worldbeautyeurasia.com/" },
+        "image": "https://worldbeautyeurasia.com/img/og.jpg",
+        "description": "International online conference for beauty professionals: latest techniques, industry trends and exchange of experience.",
+        "organizer": { "@id": "https://worldbeautyeurasia.com/#org" }
+      },
+      {
+        "@type": "Event",
+        "name": "World Beauty Eurasia 2027 — International Online Beauty Championship",
+        "startDate": "2027-03-01",
+        "endDate": "2027-03-15",
+        "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": { "@type": "VirtualLocation", "url": "https://worldbeautyeurasia.com/" },
+        "image": "https://worldbeautyeurasia.com/img/og.jpg",
+        "description": "International online championship in Lash, Brows, PMU, Nails, Hair and other categories. Works are evaluated by an international jury.",
+        "organizer": { "@id": "https://worldbeautyeurasia.com/#org" },
+        "offers": { "@type": "Offer", "price": "55", "priceCurrency": "USD", "url": "https://worldbeautyeurasia.com/#register", "availability": "https://schema.org/InStock", "validFrom": "2026-10-01" }
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="apple-touch-icon" href="img/logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,9 +113,17 @@
 
     <!-- Hero -->
     <section class="hero">
+      <!-- Фон: размытые световые пятна и золотые искры (чисто декоративно) -->
+      <div class="hero__fx" aria-hidden="true">
+        <span class="orb orb--1"></span>
+        <span class="orb orb--2"></span>
+        <span class="orb orb--3"></span>
+        <span class="sparkles"></span>
+        <span class="sparkles sparkles--far"></span>
+      </div>
       <div class="container hero__inner">
         <p class="eyebrow" data-i18n="hero.eyebrow"></p>
-        <h1>World Beauty <span class="gold">Eurasia</span></h1>
+        <h1>World Beauty <span class="gold shine">Eurasia</span></h1>
         <p class="hero__text" data-i18n="hero.text"></p>
         <div class="hero__actions">
           <a class="btn" href="#register" data-i18n="hero.cta1"></a>
@@ -157,13 +225,13 @@
           <article class="card price-card">
             <h3 data-i18n="pricing.judge"></h3>
             <ul class="price-card__rows list-reset">
-              <li><span class="price-card__amount">$99</span><small data-i18n="pricing.notrophy"></small></li>
-              <li><span class="price-card__amount">$150</span><small data-i18n="pricing.trophy"></small></li>
+              <li><span class="price-card__amount">€125</span><small data-i18n="pricing.notrophy"></small></li>
+              <li><span class="price-card__amount">€170</span><small data-i18n="pricing.trophy"></small></li>
             </ul>
           </article>
           <article class="card price-card">
             <h3 data-i18n="pricing.speaker"></h3>
-            <p class="price-card__amount">$125</p>
+            <p class="price-card__amount">€150</p>
           </article>
         </div>
       </div>
@@ -1276,6 +1344,130 @@
                 <li>Créatrice et autrice de la 3D Layers Capsules Method™ by Julia Beauty</li>
                 <li>Formatrice et intervenante internationale dans le secteur des extensions de cheveux</li>
               </ul>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/valentina-cepparulo.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.nails"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Valentina Cepparulo</span>
+                <span class="judge__meta" data-i18n="c.it"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" lang="en" hidden>
+              <p>Judge of the World Beauty Eurasia 2027 international online championship, category: Nails.</p>
+            </div>
+            <div class="judge__bio" lang="ru" hidden>
+              <p>Судья международного онлайн-чемпионата World Beauty Eurasia 2027, номинация: Ногти.</p>
+            </div>
+            <div class="judge__bio" lang="de" hidden>
+              <p>Jurorin der internationalen Online-Meisterschaft World Beauty Eurasia 2027, Kategorie: Nägel.</p>
+            </div>
+            <div class="judge__bio" lang="pl" hidden>
+              <p>Sędzia międzynarodowych mistrzostw online World Beauty Eurasia 2027, kategoria: Paznokcie.</p>
+            </div>
+            <div class="judge__bio" lang="it" hidden>
+              <p>Giudice del campionato internazionale online World Beauty Eurasia 2027, categoria: Unghie.</p>
+            </div>
+            <div class="judge__bio" lang="fr" hidden>
+              <p>Juge du championnat international en ligne World Beauty Eurasia 2027, catégorie : Ongles.</p>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/kinga-myrcha.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.nails"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Kinga Myrcha</span>
+                <span class="judge__meta" data-i18n="c.pl"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" lang="en" hidden>
+              <p>Judge of the World Beauty Eurasia 2027 international online championship, category: Nails.</p>
+            </div>
+            <div class="judge__bio" lang="ru" hidden>
+              <p>Судья международного онлайн-чемпионата World Beauty Eurasia 2027, номинация: Ногти.</p>
+            </div>
+            <div class="judge__bio" lang="de" hidden>
+              <p>Jurorin der internationalen Online-Meisterschaft World Beauty Eurasia 2027, Kategorie: Nägel.</p>
+            </div>
+            <div class="judge__bio" lang="pl" hidden>
+              <p>Sędzia międzynarodowych mistrzostw online World Beauty Eurasia 2027, kategoria: Paznokcie.</p>
+            </div>
+            <div class="judge__bio" lang="it" hidden>
+              <p>Giudice del campionato internazionale online World Beauty Eurasia 2027, categoria: Unghie.</p>
+            </div>
+            <div class="judge__bio" lang="fr" hidden>
+              <p>Juge du championnat international en ligne World Beauty Eurasia 2027, catégorie : Ongles.</p>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/angelika-zawieja.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.nails"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Angelika Zawieja</span>
+                <span class="judge__meta" data-i18n="c.pl"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" lang="en" hidden>
+              <p>Judge of the World Beauty Eurasia 2027 international online championship, category: Nails.</p>
+            </div>
+            <div class="judge__bio" lang="ru" hidden>
+              <p>Судья международного онлайн-чемпионата World Beauty Eurasia 2027, номинация: Ногти.</p>
+            </div>
+            <div class="judge__bio" lang="de" hidden>
+              <p>Jurorin der internationalen Online-Meisterschaft World Beauty Eurasia 2027, Kategorie: Nägel.</p>
+            </div>
+            <div class="judge__bio" lang="pl" hidden>
+              <p>Sędzia międzynarodowych mistrzostw online World Beauty Eurasia 2027, kategoria: Paznokcie.</p>
+            </div>
+            <div class="judge__bio" lang="it" hidden>
+              <p>Giudice del campionato internazionale online World Beauty Eurasia 2027, categoria: Unghie.</p>
+            </div>
+            <div class="judge__bio" lang="fr" hidden>
+              <p>Juge du championnat international en ligne World Beauty Eurasia 2027, catégorie : Ongles.</p>
+            </div>
+          </li>
+          <li>
+            <button class="judge" type="button">
+              <span class="judge__frame">
+                <img class="judge__photo" src="img/judges/iryna-babych.jpg" alt="" width="480" height="640" loading="lazy">
+                <span class="judge__role" data-i18n="role.hair"></span>
+              </span>
+              <span class="judge__info">
+                <span class="judge__name">Iryna Babych</span>
+                <span class="judge__meta" data-i18n="c.us"></span>
+                <span class="judge__more" data-i18n="judges.more"></span>
+              </span>
+            </button>
+            <div class="judge__bio" lang="en" hidden>
+              <p>Judge of the World Beauty Eurasia 2027 international online championship, category: Hair.</p>
+            </div>
+            <div class="judge__bio" lang="ru" hidden>
+              <p>Судья международного онлайн-чемпионата World Beauty Eurasia 2027, номинация: Волосы.</p>
+            </div>
+            <div class="judge__bio" lang="de" hidden>
+              <p>Jurorin der internationalen Online-Meisterschaft World Beauty Eurasia 2027, Kategorie: Haare.</p>
+            </div>
+            <div class="judge__bio" lang="pl" hidden>
+              <p>Sędzia międzynarodowych mistrzostw online World Beauty Eurasia 2027, kategoria: Włosy.</p>
+            </div>
+            <div class="judge__bio" lang="it" hidden>
+              <p>Giudice del campionato internazionale online World Beauty Eurasia 2027, categoria: Capelli.</p>
+            </div>
+            <div class="judge__bio" lang="fr" hidden>
+              <p>Juge du championnat international en ligne World Beauty Eurasia 2027, catégorie : Cheveux.</p>
             </div>
           </li>
         </ul>

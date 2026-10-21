@@ -147,3 +147,82 @@ document.querySelectorAll(".rules__main").forEach((main) => {
 // 6. Запуск и реакция на переключатель
 select.addEventListener("change", (e) => applyLang(e.target.value));
 applyLang(detectLang());
+
+// 7. Эффекты
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+// 7.1 Шапка: тень после начала прокрутки и золотая полоса прогресса
+const header = document.querySelector(".header");
+function onScroll() {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  header.style.setProperty("--progress", max > 0 ? (scrollY / max).toFixed(4) : 0);
+  header.classList.toggle("is-scrolled", scrollY > 10);
+}
+addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+
+// 7.2 Появление блоков при прокрутке.
+// Классы ставим из JS: если скрипт не загрузится, контент всё равно виден.
+if (!reduceMotion && "IntersectionObserver" in window) {
+  const targets = document.querySelectorAll(
+    ".section__title, .rules__lead, .grid > *, .faq details, .notes, .cta__inner > *"
+  );
+  targets.forEach((el) => {
+    el.classList.add("reveal");
+    // Волна внутри сетки: каждый следующий элемент чуть позже (по колонкам, не по всему списку)
+    if (el.parentElement.classList.contains("grid")) {
+      const i = [...el.parentElement.children].indexOf(el);
+      el.style.setProperty("--d", (i % 4) * 0.12 + "s");
+    }
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.classList.add("is-visible");
+        io.unobserve(el); // показываем один раз
+        // Когда блок проявился, снимаем служебные классы: дальше работают обычные hover-анимации карточек
+        el.addEventListener("transitionend", function done(ev) {
+          if (ev.target !== el || ev.propertyName !== "opacity") return;
+          el.classList.remove("reveal", "is-visible");
+          el.style.removeProperty("--d");
+          el.removeEventListener("transitionend", done);
+        });
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+
+  targets.forEach((el) => io.observe(el));
+}
+
+// 7.3 Наклон карточек судей за курсором + положение блика (только мышь, на телефоне не нужно)
+if (finePointer && !reduceMotion) {
+  document.querySelectorAll(".judge").forEach((card) => {
+    card.addEventListener("pointermove", (e) => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;   // 0…1 слева направо
+      const y = (e.clientY - r.top) / r.height;   // 0…1 сверху вниз
+      card.classList.add("is-tilting");
+      card.style.setProperty("--ry", ((x - 0.5) * 14).toFixed(2) + "deg");
+      card.style.setProperty("--rx", ((0.5 - y) * 14).toFixed(2) + "deg");
+      card.style.setProperty("--gx", (x * 100).toFixed(1) + "%");
+      card.style.setProperty("--gy", (y * 100).toFixed(1) + "%");
+    });
+    card.addEventListener("pointerleave", () => {
+      card.classList.remove("is-tilting");
+      card.style.setProperty("--rx", "0deg");
+      card.style.setProperty("--ry", "0deg");
+    });
+  });
+
+  // 7.4 Свечение обычных карточек под курсором
+  document.querySelectorAll(".card").forEach((card) => {
+    card.addEventListener("pointermove", (e) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", e.clientX - r.left + "px");
+      card.style.setProperty("--my", e.clientY - r.top + "px");
+    });
+  });
+}
